@@ -6,6 +6,7 @@ filetype on
 " set regexpengine=1
 syntax enable
 set autoread
+set autowrite
 
 ""indent
 set tabstop=4

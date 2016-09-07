@@ -55,6 +55,9 @@ set swapfile
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
 
+" indent for xml
+au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+
 " ignores for control-p
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'

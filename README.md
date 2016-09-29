@@ -10,6 +10,3 @@ source ~/workspace/dotfiles/vim/main.vim
 ```tmux
 bind r source-file ~/workspace/dotfiles/tmux/tmux.conf;
 ```
-
-stilL based on [Vundle](https://github.com/VundleVim/Vundle.vim)
-

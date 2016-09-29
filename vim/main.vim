@@ -15,12 +15,25 @@ set softtabstop=4
 set expandtab
 set smartindent
 
-"" indent for java
+"" I'm kind of picky about indent
+function! SetIndent2()
+    setlocal tabstop=2
+    setlocal shiftwidth=2
+    setlocal softtabstop=2
+endfunction
+
+"" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
+autocmd BufRead,BufNewFile build.boot set ft=clojure
+
+"" indents
+autocmd BufRead,BufNewFile *.coffee call SetIndent2()
+autocmd BufRead,BufNewFile *.json call SetIndent2()
+autocmd BufRead,BufNewFile *.vim call SetIndent2()
+autocmd BufRead,BufNewFile *.viml call SetIndent2()
 
 "" boot files (clojure)
-au BufRead,BufNewFile build.boot set filetype=clojure
 
 "" html
 let g:html_indent_inctags = "html,body,head,tbody"
@@ -57,9 +70,14 @@ set directory=~/.vim-tmp
 
 " indent for xml
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
+"ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
 " ignores for control-p
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-nmap <leader>v :e ~/.vimrc<CR>
+command! EditVimConfigFile :e ~/.vimrc
+command! EditTmuxConfigFile :e ~/.tmux.conf
+
+nmap <leader>v :EditVimConfigFile<CR>
+nmap <leader>t :EditTmuxConfigFile<CR>

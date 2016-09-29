@@ -1,11 +1,14 @@
 ### The idea in simple terms
 
-is to init some random vim environment by adding these lines
-to the rc file that matters
+to have all my programs customized wherever I go :)
 
 ```vimscript
-source ~/workspace/vimmy/plugins.vim
-source ~/workspace/vimmy/main.vim
+source ~/workspace/dotfiles/vim/plugins.vim
+source ~/workspace/dotfiles/vim/main.vim
+```
+
+```tmux
+bind r source-file ~/workspace/dotfiles/tmux/tmux.conf;
 ```
 
 stilL based on [Vundle](https://github.com/VundleVim/Vundle.vim)

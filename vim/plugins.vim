@@ -38,6 +38,9 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'groovy.vim'
 Plugin 'tfnico/vim-gradle'
 
+"" tmux.conf
+Plugin 'tmux-plugins/vim-tmux'
+
 "" Clojure
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-salve'

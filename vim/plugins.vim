@@ -47,6 +47,7 @@ Plugin 'tpope/vim-salve'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'
+Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 
 "" colors

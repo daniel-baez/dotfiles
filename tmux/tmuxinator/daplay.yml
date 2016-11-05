@@ -1,0 +1,11 @@
+# ~/.tmuxinator/daplay.yml
+
+name: daplay
+root: ~/vimwiki/
+
+windows:
+  - editor:
+      layout: even-vertical
+      panes:
+        - vimwiki
+        - vit

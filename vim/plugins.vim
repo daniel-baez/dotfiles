@@ -9,7 +9,6 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
@@ -18,15 +17,27 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'taku-o/vim-copypath'
 Plugin 'Townk/vim-autoclose'
 
+" nerd tree
+Plugin 'scrooloose/nerdtree'
+autocmd vimenter * NERDTree
+
 "" Plugin 'mileszs/ack.vim'
 "" Plugin 'bling/vim-airline'
 "" Plugin 'tpope/vim-sensible'
 "" Plugin 'takac/vim-spotifysearch'
 "" Plugin 'jnurmine/Zenburn'
 
+" vim-plugin-AnsiEsc adds color support in charts.
+Plugin 'powerman/vim-plugin-AnsiEsc'
+
+" tagbar provides taskwiki file navigation.
+Plugin 'majutsushi/tagbar'
+
 "" personal management
 Plugin 'mattn/calendar-vim'
 Plugin 'vimwiki/vimwiki'
+Plugin 'farseer90718/vim-taskwarrior' " vim-taskwarrior enables grid view.
+Plugin 'tbabej/taskwiki'
 
 "" CoffeeScript
 Plugin 'kchmck/vim-coffee-script'

@@ -36,8 +36,8 @@ Plugin 'majutsushi/tagbar'
 "" personal management
 Plugin 'mattn/calendar-vim'
 Plugin 'vimwiki/vimwiki'
-Plugin 'farseer90718/vim-taskwarrior' " vim-taskwarrior enables grid view.
-Plugin 'tbabej/taskwiki'
+" Plugin 'farseer90718/vim-taskwarrior' " vim-taskwarrior enables grid view.
+" Plugin 'tbabej/taskwiki'
 
 "" CoffeeScript
 Plugin 'kchmck/vim-coffee-script'

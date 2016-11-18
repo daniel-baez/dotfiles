@@ -13,6 +13,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+set autoindent
 set smartindent
 
 "" I'm kind of picky about indent
@@ -26,6 +27,7 @@ endfunction
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
 autocmd BufRead,BufNewFile build.boot set ft=clojure
+au FileType crontab setlocal bkc=yes
 
 "" indents
 autocmd BufRead,BufNewFile *.coffee call SetIndent2()
@@ -101,8 +103,11 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
 command! PiggieBackClojureScript :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! EditVimConfigFile :e ~/.vimrc
+command! EditVimConfigFileTab :tabnew | :e ~/.vimrc
 command! EditTmuxConfigFile :e ~/.tmux.conf
+command! EditTmuxConfigFileTab :tabnew | :e ~/.tmux.conf
 
-nmap <leader>v :EditVimConfigFile<CR>
-nmap <leader>t :EditTmuxConfigFile<CR>
-
+nmap <leader>dv :EditVimConfigFile<CR>
+nmap <leader>dV ::EditVimConfigFileTab<CR>
+nmap <leader>dt :EditTmuxConfigFile<CR>
+nmap <leader>dT :EditTmuxConfigFileTab<CR>

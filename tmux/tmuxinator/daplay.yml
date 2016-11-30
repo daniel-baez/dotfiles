@@ -1,7 +1,7 @@
 # ~/.tmuxinator/daplay.yml
 
 name: daplay
-root: ~/vimwiki/
+root: ~/workspace/
 
 windows:
   - editor:

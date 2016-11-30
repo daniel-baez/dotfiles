@@ -7,6 +7,7 @@ filetype on
 syntax enable
 set autoread
 set autowrite
+set paste
 
 ""indent
 set tabstop=4

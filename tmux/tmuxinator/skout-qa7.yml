@@ -1,0 +1,11 @@
+name: skout-qa7
+root: ~/workspace/
+
+windows:
+    - logs:
+        layout: even-vertical
+        panes:
+            - qa7:
+                - ssh -l dmeneses qa7
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out

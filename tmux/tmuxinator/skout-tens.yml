@@ -1,0 +1,19 @@
+name: skout-tens
+root: ~/workspace/
+
+windows:
+    - logs:
+        layout: even-vertical
+        panes:
+            - and10:
+                - ssh -l dmeneses and10
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - ios10:
+                - ssh -l dmeneses ios10
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - prodapi10:
+                - ssh -l dmeneses prodapi10
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out

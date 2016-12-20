@@ -1,0 +1,19 @@
+name: skout-ones
+root: ~/workspace/
+
+windows:
+    - logs:
+        layout: even-vertical
+        panes:
+            - and1:
+                - ssh -l dmeneses and1
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - ios1:
+                - ssh -l dmeneses ios1
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - prodapi1:
+                - ssh -l dmeneses prodapi1
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out

@@ -1,22 +1,22 @@
-name: skout-tens
+name: skout-fifthteens
 root: ~/workspace/
 
 windows:
     - logs:
         layout: even-vertical
         panes:
-            - and10:
-                - ssh -o "StrictHostKeyChecking no" -l dmeneses and10
+            - and15:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses and15
                 - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out
-            - ios10:
-                - ssh -o "StrictHostKeyChecking no" -l dmeneses ios10
+            - ios15:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses ios15
                 - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out
-            - prodapi10:
-                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi10
+            - prodapi15:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi15
                 - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out

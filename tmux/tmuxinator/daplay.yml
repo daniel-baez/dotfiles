@@ -7,5 +7,6 @@ windows:
   - editor:
       layout: even-vertical
       panes:
-        - vimwiki
-        - vit
+        - vim:
+            - echo "hello daniel"
+            - vim -c ":VimwikiIndex"

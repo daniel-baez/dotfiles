@@ -23,7 +23,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdtree'
 autocmd vimenter * NERDTree
 
-"" Plugin 'mileszs/ack.vim'
+Plugin 'mileszs/ack.vim'
 "" Plugin 'bling/vim-airline'
 "" Plugin 'tpope/vim-sensible'
 "" Plugin 'takac/vim-spotifysearch'
@@ -62,10 +62,7 @@ Plugin 'tmux-plugins/vim-tmux'
 
 "" Clojure
 Plugin 'tpope/vim-dispatch'
-
-" let g:salve_auto_start_repl = 1
-Plugin 'tpope/vim-salve'
-
+Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'

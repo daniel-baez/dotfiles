@@ -6,14 +6,17 @@ windows:
         layout: even-vertical
         panes:
             - and1:
-                - ssh -l dmeneses and1
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses and1
+                - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out
             - ios1:
-                - ssh -l dmeneses ios1
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses ios1
+                - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out
             - prodapi1:
-                - ssh -l dmeneses prodapi1
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi1
+                - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out

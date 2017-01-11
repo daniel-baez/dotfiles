@@ -6,6 +6,7 @@ windows:
         layout: even-vertical
         panes:
             - qa7:
-                - ssh -l dmeneses qa7
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses qa7
+                - set -o vi
                 - cd /usr/local/tomcat/logs/
                 - tail -f skout.log -f catalina.out

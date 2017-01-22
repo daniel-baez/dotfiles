@@ -99,8 +99,11 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
 " ignores for control-p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_root_markers = ['run', 'pom.xml']
+
+" from help:  Use 'g:ctrlp_root_markers' to set your own root markers in addition to the default ones (.git, .hg, .svn, .bzr, and _darcs). Your markers will take precedence
 
 command! PiggieBackClojureScript :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! EditVimConfigFile :e ~/.vimrc

@@ -1,0 +1,22 @@
+name: skout-elevens
+root: ~/workspace/
+
+windows:
+    - logs:
+        layout: even-vertical
+        panes:
+            - and11:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses and11
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - ios11:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses ios11
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out
+            - prodapi11:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi11
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out

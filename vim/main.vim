@@ -109,9 +109,10 @@ command! PiggieBackClojureScript :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! EditVimConfigFile :e ~/.vimrc
 command! EditVimConfigFileTab :tabnew | :e ~/.vimrc
 command! EditTmuxConfigFile :e ~/.tmux.conf
-command! EditTmuxConfigFileTab :tabnew | :e ~/.tmux.conf
+command! ReloadConfig :source ~/.vimrc | :echo 'Configuration reloaded :)'
 
 nmap <leader>dv :EditVimConfigFile<CR>
 nmap <leader>dV ::EditVimConfigFileTab<CR>
 nmap <leader>dt :EditTmuxConfigFile<CR>
 nmap <leader>dT :EditTmuxConfigFileTab<CR>
+nmap <leader>dr :ReloadConfig<CR>

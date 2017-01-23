@@ -40,7 +40,7 @@ let skout_wiki = {
       \'index': 'index',
       \'list_margin': -1,
       \'maxhi': 0,
-      \'nested_syntaxes': {},
+      \'nested_syntaxes': {'java': 'java'},
       \'path': '/Users/daplay/skout-wiki/',
       \'path_html': '/Users/daplay/skout-wiki/',
       \'syntax': 'default',

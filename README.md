@@ -6,6 +6,7 @@ to have all my programs customized wherever I go :)
 ```.vimrc
 source ~/workspace/dotfiles/vim/plugins.vim
 source ~/workspace/dotfiles/vim/main.vim
+source ~/workspace/dotfiles/vim/wikis.vim
 ```
 
 #### add the following lines to your ~/.tmux.conf

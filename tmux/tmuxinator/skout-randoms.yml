@@ -1,0 +1,64 @@
+name: skout-randoms
+root: ~/workspace/
+
+windows:
+    - logs-10-11-13:
+        layout: even-vertical
+        panes:
+            - prodapi10:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi10 
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi11:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi11
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi13:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi13
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+    - logs-15-23-25:
+        layout: even-vertical
+        panes:
+            - prodapi15:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi15
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi23:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi23
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi25:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi25
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+    - logs-26-27-32-34:
+        layout: even-vertical
+        panes:
+            - prodapi26:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi26
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi27:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi27
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi32:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi32
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+            - prodapi34:
+                - ssh -o "StrictHostKeyChecking no" -l dmeneses prodapi34
+                - set -o vi
+                - cd /usr/local/tomcat/logs/
+                - tail -f skout.log -f catalina.out | grep 'survived logout'
+

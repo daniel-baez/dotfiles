@@ -7,58 +7,26 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'gmarik/Vundle.vim'
-
+Plugin 'wakatime/wakatime'
+Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'taku-o/vim-copypath'
-
-" Plugin 'Townk/vim-autoclose'
-Plugin 'jiangmiao/auto-pairs'
-
-" nerd tree
-Plugin 'scrooloose/nerdtree'
-autocmd vimenter * NERDTree
-
+Plugin 'ctrlpvim/ctrlp.vim' " Control P
+Plugin 'jiangmiao/auto-pairs' " 
+Plugin 'scrooloose/nerdtree' " NERDTree
 Plugin 'mileszs/ack.vim'
-"" Plugin 'bling/vim-airline'
-"" Plugin 'tpope/vim-sensible'
-"" Plugin 'takac/vim-spotifysearch'
-"" Plugin 'jnurmine/Zenburn'
-
-" vim-plugin-AnsiEsc adds color support in charts.
-Plugin 'powerman/vim-plugin-AnsiEsc'
-
-" tagbar provides taskwiki file navigation.
 Plugin 'majutsushi/tagbar'
-nmap <F7> :TagbarToggle<CR>
-
-"" personal management
-Plugin 'mattn/calendar-vim'
-Plugin 'vimwiki/vimwiki'
-"" Split and follow (create target wiki page if needed).  
-nmap <Leader>we <Plug>VimwikiSplitLink
-"" Vertical split and follow (create target wiki page if needed).
-nmap <Leader>wq <Plug>VimwikiVSplitLink
-
-" Plugin 'farseer90718/vim-taskwarrior' " vim-taskwarrior enables grid view.
-" Plugin 'tbabej/taskwiki'
-
-"" CoffeeScript
-Plugin 'kchmck/vim-coffee-script'
-
-"" JavaScript
-Plugin 'pangloss/vim-javascript'
-
-"" Groovy
-Plugin 'groovy.vim'
-Plugin 'tfnico/vim-gradle'
-
-"" tmux.conf
-Plugin 'tmux-plugins/vim-tmux'
+Plugin 'vimwiki/vimwiki' " personal management
+Plugin 'kchmck/vim-coffee-script' " CoffeeScript
+Plugin 'pangloss/vim-javascript' " JavaScript
+Plugin 'groovy.vim' " Groovy
+Plugin 'tfnico/vim-gradle' " Gradle
+Plugin 'tmux-plugins/vim-tmux' " tmux.conf
+Plugin 'tpope/vim-jdaddy' " json
 
 "" Clojure
 Plugin 'tpope/vim-dispatch'

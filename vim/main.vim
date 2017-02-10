@@ -9,6 +9,10 @@ set autoread
 set autowrite
 set paste
 
+"" cursor
+set nocursorline
+set nocursorcolumn
+
 ""indent
 set tabstop=4
 set shiftwidth=4
@@ -36,6 +40,15 @@ autocmd BufRead,BufNewFile *.json call SetIndent2()
 autocmd BufRead,BufNewFile *.vim call SetIndent2()
 autocmd BufRead,BufNewFile *.viml call SetIndent2()
 
+" ignores for control-p
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_root_markers = ['run', 'pom.xml']
+
+"" Split and follow (create target wiki page if needed).  
+nmap <Leader>we <Plug>VimwikiSplitLink
+"" Vertical split and follow (create target wiki page if needed).
+nmap <Leader>wq <Plug>VimwikiVSplitLink
 
 " Clojure
 let g:rbpt_colorpairs = [
@@ -61,27 +74,51 @@ au Syntax clojure RainbowParenthesesLoadRound
 au Syntax clojure RainbowParenthesesLoadSquare
 au Syntax clojure RainbowParenthesesLoadBraces
 
+"" NERDTree
+autocmd vimenter * NERDTree
+
+" tagbar provides taskwiki file navigation.
+nmap <F7> :TagbarToggle<CR>
+
 "" html
 let g:html_indent_inctags = "html,body,head,tbody"
+
+function! FormatprgLocal(filter)
+if !empty(v:char)
+  return 1
+else
+  let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.a:filter
+  echo l:command
+  execute l:command
+endif
+endfunction
+
+if has("autocmd")
+  let pandoc_pipeline  = "pandoc --from=html --to=markdown"
+  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"
+  autocmd FileType html setlocal formatexpr=FormatprgLocal(pandoc_pipeline)
+endif
 
 ""search
 set incsearch
 set ignorecase
 set smartcase
-set nohlsearch
+set incsearch
+set hlsearch
+
+" Use <C-L> to clear the highlighting of :set hlsearch.
+if maparg('<C-L>', 'n') ==# ''
+  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
+endif
 
 ""pantalla
 set nowrap
-set number
+set ruler
+set nonumber
+set norelativenumber
 
 "" font and color
-if has('gui_running')
-  " set background=light
-  colorscheme desert
-  set guifont=PT\ Mono:h13
-else
-  " set background=dark
-endif
+colorscheme desert
 
 " vim window options
 set guioptions-=m  "remove menu bar
@@ -98,21 +135,16 @@ set directory=~/.vim-tmp
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
-" ignores for control-p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_root_markers = ['run', 'pom.xml']
-
-" from help:  Use 'g:ctrlp_root_markers' to set your own root markers in addition to the default ones (.git, .hg, .svn, .bzr, and _darcs). Your markers will take precedence
-
 command! PiggieBackClojureScript :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! EditVimConfigFile :e ~/.vimrc
 command! EditVimConfigFileTab :tabnew | :e ~/.vimrc
 command! EditTmuxConfigFile :e ~/.tmux.conf
 command! ReloadConfig :source ~/.vimrc | :echo 'Configuration reloaded :)'
+command! DaplayToggleNumbers :setlocal nu! | :setlocal rnu!
 
+nmap <leader>dn :DaplayToggleNumbers<CR>
 nmap <leader>dv :EditVimConfigFile<CR>
-nmap <leader>dV ::EditVimConfigFileTab<CR>
+nmap <leader>dV :EditVimConfigFileTab<CR>
 nmap <leader>dt :EditTmuxConfigFile<CR>
 nmap <leader>dT :EditTmuxConfigFileTab<CR>
 nmap <leader>dr :ReloadConfig<CR>

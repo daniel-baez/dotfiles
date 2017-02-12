@@ -9,4 +9,4 @@ windows:
       panes:
         - vim:
             - echo "hello daniel"
-            - vim -c ":VimwikiIndex"
+            - nvim -c ":VimwikiIndex"

@@ -9,6 +9,13 @@ source ~/workspace/dotfiles/vim/main.vim
 source ~/workspace/dotfiles/vim/wikis.vim
 ```
 
+#### NeoVim
+
+```.neovim
+mkdir -p ~/.config/nvim/
+ln -s ~/.vimrc ~/.config/nvim/init.vim
+```
+
 #### add the following lines to your ~/.tmux.conf
 ```.tmux.conf
 source-file ~/workspace/dotfiles/tmux/tmux.conf;

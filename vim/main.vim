@@ -7,7 +7,7 @@ filetype on
 syntax enable
 set autoread
 set autowrite
-set paste
+set nopaste " it's a terrible idea to leave this on see: 'help pastetoggle'
 
 "" cursor
 set nocursorline

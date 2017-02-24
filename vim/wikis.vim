@@ -15,13 +15,13 @@ let my_wiki = {
       \'list_margin': -1,
       \'maxhi': 0,
       \'nested_syntaxes': {},
-      \'path': '/Users/daplay/vimwiki/',
-      \'path_html': '/Users/daplay/vimwiki_html/',
+      \'path': expand('~/vimwiki/'),
+      \'path_html': expand('~/vimwiki_html/'),
       \'syntax': 'default',
       \'temp': 0,
       \'template_default': 'default',
       \'template_ext': '.tpl',
-      \'template_path': '/Users/daplay/vimwiki/templates/',
+      \'template_path': expand('~/vimwiki/templates/'),
       \}
 
 let skout_wiki = {
@@ -41,13 +41,13 @@ let skout_wiki = {
       \'list_margin': -1,
       \'maxhi': 0,
       \'nested_syntaxes': {'java': 'java'},
-      \'path': '/Users/daplay/skout-wiki/',
-      \'path_html': '/Users/daplay/skout-wiki/',
+      \'path': expand('~/skout-wiki/'),
+      \'path_html': expand('~/skout-wiki-html/'),
       \'syntax': 'default',
       \'temp': 0,
       \'template_default': 'default',
       \'template_ext': '.tpl',
-      \'template_path': '/Users/daplay/skout-wiki/templates/',
+      \'template_path': expand('~/skout-wiki/templates/'),
       \}
 
 let example_vimwiki = {
@@ -67,13 +67,13 @@ let example_vimwiki = {
       \'list_margin': -1,
       \'maxhi': 0,
       \'nested_syntaxes': {},
-      \'path': '/Users/daplay/workspace/clj-vimwiki/test/resources/example_vimwiki/',
-      \'path_html': '/Users/daplay/workspace/clj-vimwiki/test/resources/example_vimwiki_html/',
+      \'path': expand('~/workspace/clj-vimwiki/test/resources/example_vimwiki/'),
+      \'path_html': expand('~/workspace/clj-vimwiki/test/resources/example_vimwiki_html/'),
       \'syntax': 'default',
       \'temp': 0,
       \'template_default': 'template',
       \'template_ext': '.html',
-      \'template_path': '/Users/daplay/workspace/clj-vimwiki/test/resources/example_vimwiki_templates/',
+      \'template_path': expand('~/workspace/clj-vimwiki/test/resources/example_vimwiki_templates/'),
       \}
 
 let g:vimwiki_list = [my_wiki, skout_wiki, example_vimwiki]

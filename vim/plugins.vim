@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'justinmk/vim-dirvish'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'wakatime/wakatime'

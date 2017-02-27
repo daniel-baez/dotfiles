@@ -1,5 +1,5 @@
 let my_wiki = {
-      \'auto_export': 0,
+      \'auto_export': 1,
       \'auto_tags': 0,
       \'auto_toc': 0,
       \'automatic_nested_syntaxes': 1,

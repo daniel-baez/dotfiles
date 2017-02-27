@@ -114,8 +114,8 @@ endif
 ""pantalla
 set nowrap
 set ruler
-set nonumber
-set norelativenumber
+set number
+" set norelativenumber
 
 "" font and color
 colorscheme desert
@@ -141,7 +141,7 @@ command! EditVimConfigFileTab :tabnew | :e ~/.vimrc
 command! EditTmuxConfigFile :e ~/.tmux.conf
 command! EditTmuxConfigFileTab tabnew | :e ~/.tmux.conf
 command! ReloadConfig :source ~/.vimrc | :echo 'Configuration reloaded :)'
-command! DaplayToggleNumbers :setlocal nu! | :setlocal rnu!
+command! DaplayToggleNumbers :setlocal nu!
 
 nmap <leader>dn :DaplayToggleNumbers<CR>
 nmap <leader>dv :EditVimConfigFile<CR>

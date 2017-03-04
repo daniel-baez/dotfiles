@@ -9,6 +9,8 @@ set autoread
 set autowrite
 set nopaste " it's a terrible idea to leave this on see: 'help pastetoggle'
 
+set clipboard=unnamed " http://stackoverflow.com/questions/39645253/clipboard-failure-in-tmux-vim-after-upgrading-to-macos-sierra
+
 "" cursor
 set nocursorline
 set nocursorcolumn

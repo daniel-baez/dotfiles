@@ -33,7 +33,8 @@ endfunction
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
-autocmd BufRead,BufNewFile build.boot set ft=clojure
+autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
+"" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
 
 "" indents
@@ -151,3 +152,7 @@ nmap <leader>dV :EditVimConfigFileTab<CR>
 nmap <leader>dt :EditTmuxConfigFile<CR>
 nmap <leader>dT :EditTmuxConfigFileTab<CR>
 nmap <leader>dr :ReloadConfig<CR>
+
+"" 
+"" set statusline=%{ObsessionStatus()}
+

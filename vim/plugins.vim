@@ -6,10 +6,12 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-obsession'
 Plugin 'justinmk/vim-dirvish'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'wakatime/wakatime'
+Plugin 'wakatime/vim-wakatime'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'
@@ -31,16 +33,15 @@ Plugin 'tmux-plugins/vim-tmux' " tmux.conf
 Plugin 'tpope/vim-jdaddy' " json
 
 "" Clojure
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
 Plugin 'guns/vim-clojure-static'
+Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'
-Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
+Plugin 'kien/rainbow_parentheses.vim'
 
 "" colors
-Plugin 'altercation/vim-colors-solarized'
+"" Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

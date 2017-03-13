@@ -44,7 +44,7 @@ autocmd BufRead,BufNewFile *.vim call SetIndent2()
 autocmd BufRead,BufNewFile *.viml call SetIndent2()
 
 " ignores for control-p
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_root_markers = ['run', 'pom.xml']
 

@@ -1,5 +1,5 @@
 let my_wiki = {
-      \'auto_export': 1,
+      \'auto_export': 0,
       \'auto_tags': 0,
       \'auto_toc': 0,
       \'automatic_nested_syntaxes': 1,
@@ -14,7 +14,7 @@ let my_wiki = {
       \'index': 'index',
       \'list_margin': -1,
       \'maxhi': 0,
-      \'nested_syntaxes': {},
+      \'nested_syntaxes': {'java': 'java', 'clojure': 'clojure'},
       \'path': expand('~/vimwiki/'),
       \'path_html': expand('~/vimwiki_html/'),
       \'syntax': 'default',

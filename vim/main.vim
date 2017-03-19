@@ -138,20 +138,36 @@ set directory=~/.vim-tmp
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
-command! PiggieBackClojureScript :Piggieback (adzerk.boot-cljs-repl/repl-env)
-command! EditVimConfigFile :e ~/.vimrc
-command! EditVimConfigFileTab :tabnew | :e ~/.vimrc
-command! EditTmuxConfigFile :e ~/.tmux.conf
-command! EditTmuxConfigFileTab tabnew | :e ~/.tmux.conf
-command! ReloadConfig :source ~/.vimrc | :echo 'Configuration reloaded :)'
-command! DaplayToggleNumbers :setlocal nu!
+command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
 
-nmap <leader>dn :DaplayToggleNumbers<CR>
-nmap <leader>dv :EditVimConfigFile<CR>
-nmap <leader>dV :EditVimConfigFileTab<CR>
-nmap <leader>dt :EditTmuxConfigFile<CR>
-nmap <leader>dT :EditTmuxConfigFileTab<CR>
-nmap <leader>dr :ReloadConfig<CR>
+" comandos que abren archivos
+
+command! DvimrcReload :source ~/.vimrc | :echo 'Configuration reloaded :)'
+command! DvimrcOpen :e ~/.vimrc
+command! DvimrcTabOpen :tabnew | :e ~/.vimrc
+command! DtmuxconfigOpen :e ~/.tmux.conf
+command! DtmuxconfigTabOpen tabnew | :e ~/.tmux.conf
+command! DbashrcOpen :e ~/.bashrc
+command! DbashrcTabOpen :tabnew | :e ~/.bashrc
+command! DbashprofileOpen :e ~/.bash_profile
+command! DbashprofileTabOpen :tabnew | :e ~/.bash_profile
+command! DbashprofileOpen :e ~/.bash_profile
+command! DbashprofileTabOpen :tabnew | :e ~/.bash_profile
+
+command! DtoggleNumbers :setlocal nu!
+
+" mappings that open files
+nmap ,dov :DvimrcOpen<CR>
+nmap ,doV :DvimrcTabOpen<CR>
+nmap ,dot :DtmuxconfigOpen<CR>
+nmap ,doT :DtmuxconfigTabOpen<CR>
+nmap ,dobb :DbashrcOpen<CR>
+nmap ,doBB :DbashrcOpen<CR>
+nmap ,dobp :DbashprofileOpen<CR>
+nmap ,doBP :DbashprofileOpen<CR>
+
+nmap ,dn :DtoggleNumbers<CR>
+nmap ,dR :DvimrcReload<CR>
 
 "" 
 "" set statusline=%{ObsessionStatus()}

@@ -33,6 +33,7 @@ endfunction
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
+autocmd BufRead,BufNewFile *.gradle set ft=groovy
 autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
@@ -151,23 +152,20 @@ command! DbashrcOpen :e ~/.bashrc
 command! DbashrcTabOpen :tabnew | :e ~/.bashrc
 command! DbashprofileOpen :e ~/.bash_profile
 command! DbashprofileTabOpen :tabnew | :e ~/.bash_profile
-command! DbashprofileOpen :e ~/.bash_profile
-command! DbashprofileTabOpen :tabnew | :e ~/.bash_profile
 
 command! DtoggleNumbers :setlocal nu!
 
 " mappings that open files
+nmap ,dn :DtoggleNumbers<CR>
+nmap ,dR :DvimrcReload<CR>
 nmap ,dov :DvimrcOpen<CR>
 nmap ,doV :DvimrcTabOpen<CR>
 nmap ,dot :DtmuxconfigOpen<CR>
 nmap ,doT :DtmuxconfigTabOpen<CR>
 nmap ,dobb :DbashrcOpen<CR>
-nmap ,doBB :DbashrcOpen<CR>
+nmap ,doBB :DbashrcTabOpen<CR>
 nmap ,dobp :DbashprofileOpen<CR>
-nmap ,doBP :DbashprofileOpen<CR>
-
-nmap ,dn :DtoggleNumbers<CR>
-nmap ,dR :DvimrcReload<CR>
+nmap ,doBP :DbashprofileTabOpen<CR>
 
 "" 
 "" set statusline=%{ObsessionStatus()}

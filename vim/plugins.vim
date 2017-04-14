@@ -27,10 +27,12 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki' " personal management
 Plugin 'kchmck/vim-coffee-script' " CoffeeScript
 Plugin 'pangloss/vim-javascript' " JavaScript
-Plugin 'groovy.vim' " Groovy
 Plugin 'tfnico/vim-gradle' " Gradle
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf
 Plugin 'tpope/vim-jdaddy' " json
+
+"" Plugin 'groovy.vim' " Groovy
+Plugin 'rdolgushin/groovy.vim'
 
 "" Clojure
 Plugin 'guns/vim-clojure-static'

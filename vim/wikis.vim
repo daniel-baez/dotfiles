@@ -41,7 +41,7 @@ let skout_wiki = {
       \'list_margin': -1,
       \'maxhi': 0,
       \'nested_syntaxes': {'java': 'java'},
-      \'path': expand('~/skout-wiki/'),
+      \'path': expand('~/vimwiki/Skout/'),
       \'path_html': expand('~/skout-wiki-html/'),
       \'syntax': 'default',
       \'temp': 0,

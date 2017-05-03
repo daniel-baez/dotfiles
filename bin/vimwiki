@@ -1,3 +1,5 @@
 #!/bin/sh
 
-nvim -c ":VimwikiIndex"
+# nvim -c ":VimwikiIndex"
+vim -c "call vimwiki#base#goto_index(1)"
+

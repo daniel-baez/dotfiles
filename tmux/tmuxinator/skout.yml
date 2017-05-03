@@ -9,4 +9,4 @@ windows:
       panes:
         - vim:
             - echo "hello daniel"
-            - vim -c "call vimwiki#base#goto_index(1)"
+            - vim -c "call vimwiki#base#goto_index(2)"

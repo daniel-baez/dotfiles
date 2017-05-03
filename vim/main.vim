@@ -79,7 +79,7 @@ au Syntax clojure RainbowParenthesesLoadSquare
 au Syntax clojure RainbowParenthesesLoadBraces
 
 "" NERDTree
-autocmd vimenter * NERDTree
+"""autocmd vimenter * NERDTree
 
 " tagbar provides taskwiki file navigation.
 nmap <F7> :TagbarToggle<CR>
@@ -158,6 +158,7 @@ command! DtoggleNumbers :setlocal nu!
 " mappings that open files
 nmap ,dn :DtoggleNumbers<CR>
 nmap ,dR :DvimrcReload<CR>
+nmap ,dt :NERDTreeToggle<CR>
 nmap ,dov :DvimrcOpen<CR>
 nmap ,doV :DvimrcTabOpen<CR>
 nmap ,dot :DtmuxconfigOpen<CR>

@@ -66,6 +66,7 @@ task installVim() {
         "source ${project.projectDir}/vim/main.vim",
         "source ${project.projectDir}/vim/wikis.vim"];
 
+
     outputs.file vimConfigFile
     outputs.upToDateWhen { task ->
         if (!vimConfigFile.exists() || !vimConfigFile.file) {
@@ -82,6 +83,11 @@ task installVim() {
 
         return true;
     }
+
+    doLast {
+		// used in our vim config to store temp files
+		new File(userHome, ".vim-tmp/").mkdirs()
+	}
 
     doLast {
         if (vimConfigFile.exists()) {

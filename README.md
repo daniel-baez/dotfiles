@@ -1,31 +1,23 @@
 # How to install
 
-for vim
+just run...
 
-```.vimrc
-source ~/workspace/dotfiles/vim/plugins.vim
-source ~/workspace/dotfiles/vim/main.vim
-source ~/workspace/dotfiles/vim/wikis.vim
+```.groovy
+./gradle
 ```
 
-for neovim
+## Vim
 
-```.neovim
-mkdir -p ~/.config/nvim/
-ln -s ~/.vimrc ~/.config/nvim/init.vim
-```
-
-tmux
-
-```.tmux.conf
-ln -s ~/workspace/dotfiles/tmux/tmux.conf ~/.tmux.conf
-```
-
-tmuxinator
-
-```.tmuxinator
-ln -s ~/workspace/dotfiles/tmux/tmuxinator ~/.tmuxinator
-```
+- `,dn` toggle line numbers
+- `,dR` reloads .vimrc
+- `,dov` opens .vimrc 
+- `,doV` opens .vimrc in a new tab
+- `,dot` opens .tmux.conf in a new tab
+- `,doT` opens .tmux.conf in a new tab
+- `,dobb` opens .bashrc
+- `,doBB` opens .bashrc in a new tab
+- `,dobp` opens .bash_profile
+- `,doBP` opens .bash_profile in a new tab
 
 ## Tmux
 

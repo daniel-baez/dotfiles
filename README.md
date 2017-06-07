@@ -3,7 +3,7 @@
 just run...
 
 ```.groovy
-./gradle
+./gradlew
 ```
 
 ## Vim

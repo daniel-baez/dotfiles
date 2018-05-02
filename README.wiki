@@ -1,0 +1,56 @@
+= Dotfiles =
+
+== Qué es esto? ==
+
+En este repo hay tres cosas:
+
+1. Dentro del directorio `environment/` Los archivos de configuración que uso a diario
+2. Dentro del directorio `installer/` Un archivo ejecutable `install.sh` que es capaz de 
+  extender una estacion de trabajo POSIX para que utilice las herramientas de `environment/`
+3. Un Dockerfile basado en Archlinux en el cual se ejecutan los pasos uno y dos.
+
+== Para qué? ==
+
+Para disponer de mi ambiente en cualquier lugar que lo necesite
+
+== Layout ==
+
+- `environment/`
+  - `config/`
+    - `nvim/`
+    - `tmux/`
+    - `bash/`
+      - `bashrc` sourced from $HOME/.bashrc
+      - `bash_profile`
+      - `profile` sourced from $HOME/.profile
+  - `bin/`
+  - `crontabs/`
+- `installer/`
+  - `install.sh`
+- `Dockerfile`
+ 
+== Cómo funciona el Docker? ==
+ 
+=== Qué programas estan instalados? ===
+
+Los programas que el Dockerfile installa (y que el installer espera) son:
+
+- java
+- node
+- boot-clj
+- nvim (este nvim tiene sus plugins configurados tambien)
+- taskwarrior
+- tmux
+- sdk
+- git
+- https://github.com/hroptatyr/dateutils
+ 
+=== Qué directorios son montables? ===
+
+- $HOME/workspace
+- $HOME/bin
+- $HOME/
+ 
+== Backlog ==
+
+- poder usar eclim

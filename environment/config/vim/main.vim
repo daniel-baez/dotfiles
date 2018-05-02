@@ -16,19 +16,12 @@ set nocursorline
 set nocursorcolumn
 
 ""indent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 set expandtab
 set autoindent
 set smartindent
-
-"" I'm kind of picky about indent
-function! SetIndent2()
-    setlocal tabstop=2
-    setlocal shiftwidth=2
-    setlocal softtabstop=2
-endfunction
 
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
@@ -39,10 +32,8 @@ autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 au FileType crontab setlocal bkc=yes
 
 "" indents
-autocmd BufRead,BufNewFile *.coffee call SetIndent2()
-autocmd BufRead,BufNewFile *.json call SetIndent2()
-autocmd BufRead,BufNewFile *.vim call SetIndent2()
-autocmd BufRead,BufNewFile *.viml call SetIndent2()
+au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
 
 " ignores for control-p
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo
@@ -123,6 +114,7 @@ set number
 
 "" font and color
 colorscheme desert
+" colorscheme zenburn
 
 " vim window options
 set guioptions-=m  "remove menu bar

@@ -27,6 +27,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki' " personal management
 Plugin 'kchmck/vim-coffee-script' " CoffeeScript
 Plugin 'pangloss/vim-javascript' " JavaScript
+Plugin 'mxw/vim-jsx'
 Plugin 'tfnico/vim-gradle' " Gradle
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf
 Plugin 'tpope/vim-jdaddy' " json
@@ -44,6 +45,7 @@ Plugin 'kien/rainbow_parentheses.vim'
 
 "" colors
 "" Plugin 'altercation/vim-colors-solarized'
+Plugin 'jnurmine/Zenburn'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

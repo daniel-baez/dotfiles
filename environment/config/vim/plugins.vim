@@ -6,9 +6,11 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'google/vim-jsonnet'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-obsession'
 Plugin 'justinmk/vim-dirvish'
+Plugin 'calendar.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'gmarik/Vundle.vim'
 Plugin 'wakatime/vim-wakatime'
@@ -29,6 +31,7 @@ Plugin 'kchmck/vim-coffee-script' " CoffeeScript
 Plugin 'pangloss/vim-javascript' " JavaScript
 Plugin 'mxw/vim-jsx'
 Plugin 'tfnico/vim-gradle' " Gradle
+Plugin 'joukevandermaas/vim-ember-hbs'
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf
 Plugin 'tpope/vim-jdaddy' " json
 

@@ -1,0 +1,1 @@
+ls /Users/dmeneses/bin | pr -1 -t

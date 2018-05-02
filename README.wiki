@@ -17,12 +17,9 @@ Para disponer de mi ambiente en cualquier lugar que lo necesite
 
 - `environment/`
   - `config/`
-    - `nvim/`
+    - `vim/`
     - `tmux/`
     - `bash/`
-      - `bashrc` sourced from $HOME/.bashrc
-      - `bash_profile`
-      - `profile` sourced from $HOME/.profile
   - `bin/`
   - `crontabs/`
 - `installer/`
@@ -33,14 +30,14 @@ Para disponer de mi ambiente en cualquier lugar que lo necesite
  
 === Qué programas estan instalados? ===
 
-Los programas que el Dockerfile installa (y que el installer espera) son:
+Los programas que el Dockerfile instala (y que el installer espera) son:
 
 - java
 - node
 - boot-clj
 - nvim (este nvim tiene sus plugins configurados tambien)
 - taskwarrior
-- tmux
+- tmux (con tpm)
 - sdk
 - git
 - https://github.com/hroptatyr/dateutils

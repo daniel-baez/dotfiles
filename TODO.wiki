@@ -1,0 +1,18 @@
+= Todo = 
+
+== Installer == 
+
+- $HOME/.profile loads:
+  - $DOTFILES/environment/bash/profile
+- $PATH variable:
+  - starts with $DOTFILES/environment/bin/
+- $HOME/.vimrc loads:
+  - $DOTFILES/environment/config/vim/main.vim 
+  - $DOTFILES/environment/config/vim/plugins.vim
+- $HOME/.tmux.conf loads:
+  - $DOTFILES/environment/config/tmux/tmux.conf
+- neovim uses sources $HOME/.vimrc 
+
+== Dockerfile == 
+
+

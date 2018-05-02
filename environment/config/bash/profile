@@ -1,15 +1,13 @@
 #!/bin/sh
-set -o vi
 
-export JAVA_HOME=$(/usr/libexec/java_home)
-export ECLIM_HOME='/Applications/Eclipse\ Java.app/Contents/Eclipse/plugins/org.eclim_2.7.0'
-export PATH=$HOME/bin:$PATH
+# loads every other file in this same directory
+local currentDir="$(dirname "${BASH_SOURCE}")";
 
-# alias workspace="pushd $HOME/workspace"
-# alias wikis="pushd $HOME/wikis"
-# alias downloads="pushd /Users/daplay/Downloads"
-# alias daplay="tmux new-session -s daplay vim -c \"call vimwiki#base#goto_index(1)\""
-# alias family="tmux new-session -s daplay vim -c \"call vimwiki#base#goto_index(2)\""
-# alias reload="source $HOME/.bashrc"
-# # alias start_eclimd="./"
+for file in $currentDir/{aliases,editor,exports,history}.sh; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+
+unset file;
+unset currentDir;
+
 

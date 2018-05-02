@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # BETTER HISTORY https://sanctum.geek.nz/arabesque/better-bash-history/
 
 # option `histappend` will append to .bash_history instead of overwriting what's there

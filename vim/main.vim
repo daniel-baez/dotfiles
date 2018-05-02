@@ -37,6 +37,7 @@ autocmd BufRead,BufNewFile *.gradle set ft=groovy
 autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
+au BufRead,BufNewFile *.md,*.wiki setlocal textwidth=80
 
 "" indents
 autocmd BufRead,BufNewFile *.coffee call SetIndent2()

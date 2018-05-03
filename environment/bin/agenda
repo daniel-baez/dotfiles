@@ -17,7 +17,7 @@ fi;
 # tmux new-session -s `session-name` sets session name
 # tmux new-session -n `window-name` sets window name
 
-tmux new-session -A \
+tmux -u new-session -A \
     -c $HOME/workspace \
     -s Agenda \
     -n Agenda \

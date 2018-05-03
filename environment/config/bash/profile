@@ -10,4 +10,5 @@ done;
 unset file;
 unset currentDir;
 
+export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8"
 

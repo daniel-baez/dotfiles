@@ -3,24 +3,25 @@
 # Crea una nueva session de tmux llamada `Agenda` dentro de la cual `$PWD` es `$HOME/workspace`
 # al iniciar la session, abre "el día de hoy" en vimwiki.
 # En caso de existir tal session, se "atachea" a ella
-# En caso de estar dentro de tmux, iluma al usuario con un tierno mensaje
+# En caso de estar dentro de tmux, inicia vimwiki
 
 # uso: agenda
 
-if [[ "$TMUX" ]]; then 
-    echo "Daniel, ya estás dentro de TMUX... despierta?"; 
-    exit 1
-fi;
-
+# 
 # tmux -A makes tmux attach to the session if already exists
 # tmux new-session -c `directory` sets $PWD
 # tmux new-session -s `session-name` sets session name
 # tmux new-session -n `window-name` sets window name
 
-tmux -u new-session -A \
-    -c $HOME/workspace \
-    -s Agenda \
-    -n Agenda \
-    nvim -c 'VimwikiDiaryIndex' \
-    -c 'vsplit' \
-    -c 'VimwikiMakeDiaryNote'
+readonly startVim="nvim -c 'VimwikiIndex' -c 'vsplit' -c 'VimwikiMakeDiaryNote'"
+
+if [[ "$TMUX" ]]; then 
+  eval $startVim
+  exit 0
+fi;
+
+eval tmux -u new-session -A \
+  -c $HOME/workspace \
+  -s Agenda \
+  -n Agenda \
+  $startVim

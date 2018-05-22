@@ -1,9 +1,9 @@
 #!/bin/sh
 
 alias dreload="source $HOME/.bash_profile"
-alias dcurrent_branch="git branch | grep '*' | sed -Ee 's/^[* ]+//'"
-alias dcurrent_ticket="dcurrent_branch | cut -d_ -f1"
-alias dcurrent_revision="git rev-parse --short=7 HEAD"
+alias dcb="git branch | grep '*' | sed -Ee 's/^[* ]+//'"
+alias dct="dcb | cut -d_ -f1"
+alias dcr="git rev-parse --short=7 HEAD"
 
 alias workspace='cd $HOME/workspace'
 alias wikies='cd $HOME/wikies'

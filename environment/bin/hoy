@@ -11,7 +11,7 @@
 #   - Removes tasks that were completed: - [X]
 # 
 
-readonly diaryDirectory=${1:-"$HOME/wikies/raw/fitbit/diary"}
+readonly diaryDirectory=${1:-"$HOME/vimwiki/diary"}
 readonly today=$(date +'%Y-%m-%d')
 
 if [ -f "$diaryDirectory/$today.wiki" ]
@@ -33,28 +33,29 @@ function get_last_written_day() {
 # Given a day, returns a test for the header like "= Monday ="
 function get_day_header() {
   local readonly day=$1
+  local readonly inMonth=$(date +'%d')
 
   case $(date -j -f'%Y-%m-%d' $day +'%u') in
     1)
-      echo "= Lunes = "
+      echo "= Lunes $inMonth = "
       ;;
     2)
-      echo "= Martes = "
+      echo "= Martes $inMonth = "
       ;;
     3)
-      echo "= Miercoles = "
+      echo "= Miercoles $inMonth = "
       ;;
     4)
-      echo "= Jueves = "
+      echo "= Jueves $inMonth = "
       ;;
     5)
-      echo "= Viernes = "
+      echo "= Viernes $inMonth = "
       ;;
     6)
-      echo "= Sabado = "
+      echo "= Sabado $inMonth = "
       ;;
     7)
-      echo "= Sunday = "
+      echo "= Sunday $inMonth = "
       ;;
   esac
 }
@@ -68,16 +69,3 @@ readonly nextDayHeader=$(get_day_header $today)
     | sed -e '/\[X\]/d' \
     | sed -E -e 's;\[[.oO]\];[ ];' \
     | sed '1d') > $diaryDirectory/$today.wiki
-
-### - CASO DE USO TOP: aplicando las sanitizaciones y dado el directorio: crea archivo para dia siguiente
-### - CASO DE USO TOP: sanitizazdo de archivo generado (eliminacion de tareas completadas, reset de pomodoros)
-
-### - CASO DE USO MED: dado un diractorio de vimwiki, quiero saber cual fue el ultimo dia escrito
-  ### - listar los archivos del directorio
-  ### - filtrar solo los dias
-  ### - ordenar esa lista 
-  ### - ordenar los dias
-  ### - obtener el ultimo o el primero, el ultimo dia escrito
-### - CASO DE USO MED: dado un dia cualquiera, quiero saber cual es el dia habil siguiente
-  ### - ver que dia era (lunes, martes miercoles, jueves)
-  ### - dar el dia siguiente

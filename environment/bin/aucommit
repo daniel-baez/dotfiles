@@ -1,0 +1,15 @@
+#!/bin/sh
+
+readonly directory=$1
+
+if [ ! -d $directory ]; then
+  echo "$directory is not a Directory"
+  exit 1
+fi
+
+
+echo "this thing is in construction"
+exit 1
+
+
+

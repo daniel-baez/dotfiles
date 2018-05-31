@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Usage: `dcommit some message you want`
+# 
+# is a template for command:
+#
+# `git add --all . && git commit -am"<TICKET_NUMBER>: some message you want"`
+# 
+# <TICKET_NUMBER> is taken from the branch name
+
+
+readonly ticketNumber=$(git branch | grep '^\*' | sed -E -e 's/[ \*]//g' | cut -f1 -d_)
+readonly message="$@"
+
+set -ex
+
+git add --all .
+git commit -m"$ticketNumber: $message"

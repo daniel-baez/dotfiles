@@ -16,3 +16,4 @@ set -ex
 
 git add --all .
 git commit -m"$ticketNumber: $message"
+git push origin

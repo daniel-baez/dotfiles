@@ -1,0 +1,10 @@
+#!/bin/sh
+
+/usr/local/bin/nvim --headless -n -c VimwikiIndex \
+  -c '3,$!sort | uniq' \
+  -c 'w!' \
+  -c VimwikiDiaryIndex \
+  -c VimwikiDiaryGenerateLinks \
+  -c 'w!' \
+  -c VimwikiAll2HTML \
+  -c qa

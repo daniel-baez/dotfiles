@@ -23,6 +23,9 @@ set expandtab
 set autoindent
 set smartindent
 
+" save on change for *.wiki files
+autocmd TextChanged,TextChangedI *.wiki silent write
+
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy

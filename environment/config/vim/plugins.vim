@@ -6,6 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+Plugin 'blindFS/vim-taskwarrior'
 Plugin 'google/vim-jsonnet'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-obsession'

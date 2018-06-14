@@ -3,7 +3,7 @@
 # loads every other file in this same directory
 currentDir="$(dirname "${BASH_SOURCE}")";
 
-for file in $currentDir/{aliases,editor,exports,history}.sh; do
+for file in $currentDir/{aliases,editor,exports,history,workspace}.sh; do
 	[ -r "$file" ] && [ -f "$file" ] && source "$file";
 done;
 

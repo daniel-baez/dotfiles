@@ -2,4 +2,4 @@
 
 export WORKSPACE=$HOME/workspace
 export TOOLS=$HOME/tools
-export WIKIS=$HOME/wikis
+export VIMWIKI=$HOME/vimwiki

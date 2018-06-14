@@ -20,6 +20,8 @@ if [[ "$TMUX" ]]; then
   exit 0
 fi;
 
+hoy
+
 eval tmux -u new-session -A \
   -c $HOME/workspace \
   -s Agenda \

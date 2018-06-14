@@ -1,5 +1,6 @@
 #!/bin/sh
 
-export WORKSPACE=$HOME/workspace
+export DOTFILES=$HOME/workspace/dotfiles
 export TOOLS=$HOME/tools
 export VIMWIKI=$HOME/vimwiki
+export WORKSPACE=$HOME/workspace

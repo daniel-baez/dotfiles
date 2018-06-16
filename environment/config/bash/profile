@@ -1,15 +1,19 @@
 #!/bin/sh
 
 # loads every other file in this same directory
-currentDir="$(dirname "${BASH_SOURCE}")";
+currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-for file in $currentDir/{aliases,editor,exports,history,workspace}.sh; do
-	[ -r "$file" ] && [ -f "$file" ] && source "$file";
-done;
+while read file
+do
+  file=$currentDir/scripts/$file.sh
+  [ -r "$file" ] && [ -f "$file" ] && source "$file";
+done <<EOM
+aliases
+editor
+exports
+history
+workspace
+EOM
 
 unset file;
 unset currentDir;
-
-export JAVA_TOOL_OPTIONS="-Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en"
-export JAVA_OPTIONS="-Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en"
-

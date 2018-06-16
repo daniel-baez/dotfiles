@@ -12,6 +12,8 @@ USER daplay
 WORKDIR /home/daplay
 
 RUN mkdir $HOME/bin \
+        $HOME/.task \
+        $HOME/vimwiki \
         $HOME/workspace
 
 CMD ["/bin/bash"]

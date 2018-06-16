@@ -2,7 +2,7 @@
 
 # ideas taken from: https://taskwarrior.org/news/news.20150627.html
 #
-export PS1='$(task +in +PENDING count) \u \$ '
+export PS1='$(task +in +PENDING count) \u@\W/\$: '
 export TASKRC="$DOTFILES/environment/config/task/taskrc"
 
 alias in='task add +in'

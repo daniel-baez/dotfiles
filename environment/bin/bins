@@ -1,1 +1,1 @@
-ls /Users/dmeneses/bin | pr -1 -t
+ls $DOTFILES/environment/bin | pr -1 -t

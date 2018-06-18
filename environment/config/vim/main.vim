@@ -11,6 +11,9 @@ set nopaste " it's a terrible idea to leave this on see: 'help pastetoggle'
 
 set clipboard=unnamed " http://stackoverflow.com/questions/39645253/clipboard-failure-in-tmux-vim-after-upgrading-to-macos-sierra
 
+" NERDTree Bookmards
+let g:NERDTreeBookmarksFile = expand('$DOTFILES') . '/environment/config/vim/NERDTreeBookmarks'
+
 "" cursor
 set nocursorline
 set nocursorcolumn

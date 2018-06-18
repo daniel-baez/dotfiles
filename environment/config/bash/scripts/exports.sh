@@ -5,3 +5,5 @@ export DOWNLOADS=$HOME/downloads
 export TOOLS=$HOME/tools
 export VIMWIKI=$HOME/vimwiki
 export WORKSPACE=$HOME/workspace
+
+

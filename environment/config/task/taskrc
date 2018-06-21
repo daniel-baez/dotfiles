@@ -59,10 +59,3 @@ verbose=blank,footnote,label,new-id,affected,edit,special,project,sync,unwait
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-dark-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/solarized-light-256.theme
 #include /usr/local/Cellar/task/2.5.1/share/doc/task/rc/no-color.theme
-
-# context.work=+@computer or +@phone or +@online or +pega
-context.work=+pega
-
-# context.home=+@home -@online -pega
-context.home=-pega
-context=home

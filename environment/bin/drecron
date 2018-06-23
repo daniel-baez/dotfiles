@@ -4,11 +4,8 @@
 # drecron
 
 currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-mainCrontabFile="$currentDir/../"
+mainCrontabFile="$currentDir/../config/crontab/main.cron"
 
 echo "\$currentDir: $currentDir"
-echo "\$currentDir: $currentDir"
-echo "\$currentDir: $currentDir"
-echo "\$currentDir: $currentDir"
-  # source $currentDir/../profile
+echo "\$mainCrontabFile: $mainCrontabFile"
 

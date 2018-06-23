@@ -6,6 +6,5 @@
 currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mainCrontabFile="$currentDir/../config/crontab/main.cron"
 
-echo "\$currentDir: $currentDir"
-echo "\$mainCrontabFile: $mainCrontabFile"
+crontab $mainCrontabFile
 

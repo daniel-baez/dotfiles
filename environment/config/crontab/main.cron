@@ -1,0 +1,17 @@
+# every 5 minutes, sync task warrior
+*/5 * * * * /usr/local/bin/task sync 1>/dev/null 2>/dev/null
+
+# every minute, rebuild html version of personal wiki
+*/1 * * * * /Users/daplay/workspace/dotfiles/environment/bin/publish-wiki 1>/dev/null 2>/dev/null
+
+# cada minuto correr el update para vimwiki y dotfiles
+* * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 1>/dev/null
+* * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update 1>/dev/null
+
+# cada 10 minutos correr el sync para vimwiki y dotfiles
+*/10 * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki sync 1>/dev/null
+*/10 * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles sync 1>/dev/null
+
+# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update
+# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 1> $HOME/loglog.log
+# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update 

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+readonly directory=$1
+
+echo "\$directorio: $directory"
+echo "\$directorio: $directory"
+echo "\$directorio: $directory"
+
+# - toma un directorio como parametro (lo chequea o falla)
+# - git pull 
+# - ve cuando se modifico el ultimo archivo en ese directorio (que no sea ignorado por git)
+# - ve cuando es la fecha del ultimo commit
+

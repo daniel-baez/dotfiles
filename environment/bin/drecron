@@ -3,6 +3,12 @@
 # short for (daniel reinstall crontab)
 # drecron
 
-local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+mainCrontabFile="$currentDir/../"
+
+echo "\$currentDir: $currentDir"
+echo "\$currentDir: $currentDir"
+echo "\$currentDir: $currentDir"
+echo "\$currentDir: $currentDir"
   # source $currentDir/../profile
 

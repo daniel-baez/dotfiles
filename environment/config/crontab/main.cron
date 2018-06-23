@@ -11,7 +11,3 @@
 # cada 10 minutos correr el sync para vimwiki y dotfiles
 */10 * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki sync 1>/dev/null
 */10 * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles sync 1>/dev/null
-
-# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update
-# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 1> $HOME/loglog.log
-# * * * * * /Users/daplay/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update 

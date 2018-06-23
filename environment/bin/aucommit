@@ -19,7 +19,8 @@ function doUpdate() {
   then
      touch $lockFileName
   else 
-    echo "$0: File '$lockFileName' exists, update won't take place as it, for today, happen already."
+    # can't this message from generating a new email
+    # echo "$0: File '$lockFileName' exists, update won't take place as it, for today, happen already."
     return 0
   fi
 

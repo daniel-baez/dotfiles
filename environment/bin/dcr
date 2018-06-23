@@ -1,0 +1,12 @@
+#!/bin/sh
+#
+# `dcr` is short for `daniel's current revision`
+#
+
+revision=`git rev-parse --short=7 HEAD`
+
+echo $revision
+
+if [ -x "$(command -v pbcopy)"  ]; then
+	echo $revision | pbcopy
+fi

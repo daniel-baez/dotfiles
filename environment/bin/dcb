@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# `dcb` is short for `daniel's current branch`
+# this shorthand command outputs the branch if any I'm standing on
+
+branch=$(git branch \
+	| grep '*' \
+	| sed -Ee 's/^[* ]+//' \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+echo $branch
+
+if [ -x "$(command -v pbcopy)"  ]; then
+	echo $branch | pbcopy
+fi
+

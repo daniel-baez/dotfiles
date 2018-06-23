@@ -1,0 +1,18 @@
+#!/bin/sh
+#
+# `dct` is short for `daniel's current ticket`
+#
+# I usually have branch names like: SK-1231_featureY, IPD-12312_featureX, etc...
+# this utility outputs the ticket name if any
+
+ticket=$(dcb \
+	| cut -d_ -f1 \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+echo "$ticket"
+
+if [ -x "$(command -v pbcopy)"  ]; then
+	echo $ticket | pbcopy
+fi
+

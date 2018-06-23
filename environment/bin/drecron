@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# short for (daniel reinstall crontab)
+# drecron
+
+local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  # source $currentDir/../profile
+

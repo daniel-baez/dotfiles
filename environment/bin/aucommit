@@ -1,15 +1,61 @@
 #!/bin/sh
 
-readonly directory=$1
+set -e
 
-if [ ! -d $directory ]; then
-  echo "$directory is not a Directory"
-  exit 1
+if [ "$#" -lt 1  ] || ! [ -d "$1"  ]; then
+	echo "Usage: $0 DIRECTORY [update|sync]" >&2
+	exit 1
 fi
 
+readonly directory=$1
+readonly today=$(date +'%Y-%m-%d')
 
-echo "this thing is in construction"
-exit 1
+# does the pulling part of the problem
+function doUpdate() {
+	# echo "doing update"
+  readonly lockFileName="$directory/$today.pulled"
 
+  if [ ! -f "$lockFileName" ]
+  then
+     touch $lockFileName
+  else 
+    echo "$0: File '$lockFileName' exists, update won't take place as it, for today, happen already."
+    return 0
+  fi
 
+  git -C $directory checkout master
+  git -C $directory pull
 
+	# To add changes in another branch adds the complexity of
+	# Merging in yesterdays branches
+  # echo git -C $directory checkout -b $today
+}
+
+# does the pushing part of the problem
+function doSync() {
+	local readonly now=$(date +'%Y-%m-%d %HH:%MM')
+
+  git -C $directory add --all
+  git -C $directory commit -m"Auto commit at: $now"
+  git -C $directory push origin
+}
+
+# removes locks that aren't from today
+function removeLocks() {
+  find $directory -type f -name '*.pulled' ! -name "$today.pulled" -delete
+}
+
+if [ "$#" -eq 2  ]; then
+	subcommand=$2
+
+	if [ "x$subcommand" = "xupdate"  ]; then
+		doUpdate
+	elif [ "x$subcommand" = "xsync"  ]; then
+		doSync
+	fi
+else
+	doUpdate
+	doSync
+fi
+
+removeLocks

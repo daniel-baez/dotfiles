@@ -1,1 +1,3 @@
+#!/bin/sh
+
 git commit -a --reuse-message=HEAD

@@ -9,7 +9,7 @@
 # <TICKET_NUMBER> is taken from the branch name
 
 
-readonly ticketNumber=$(git branch | grep '^\*' | sed -E -e 's/[ \*]//g' | cut -f1 -d_)
+readonly ticketNumber=$(dct)
 readonly message="$@"
 
 set -ex

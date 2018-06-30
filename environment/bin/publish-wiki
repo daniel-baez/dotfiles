@@ -7,4 +7,4 @@
   -c VimwikiDiaryGenerateLinks \
   -c 'w!' \
   -c VimwikiAll2HTML \
-  -c qa
+  -c 'qa!'

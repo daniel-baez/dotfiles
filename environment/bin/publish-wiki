@@ -8,3 +8,9 @@
   -c 'w!' \
   -c VimwikiAll2HTML \
   -c 'qa!'
+
+nvim="$!"
+echo "nvim es: $nvim"
+if [ ! -z $nvim ]; then
+  kill -9 $nvim
+fi

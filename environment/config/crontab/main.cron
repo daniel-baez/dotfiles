@@ -2,10 +2,10 @@
 */5 * * * * /usr/local/bin/task sync 1>/dev/null 2>/dev/null
 
 # every minute, rebuild html version of personal wiki
-*/1 * * * * $HOME/workspace/dotfiles/environment/bin/publish-wiki 1>/dev/null 2>/dev/null
+* * * * * $HOME/workspace/dotfiles/environment/bin/publish-wiki 1>/dev/null 2>/dev/null
 
 # cada minuto correr el update para vimwiki y dotfiles
-* * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 1>/dev/null 2>/dev/null
+* * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 
 * * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update 1>/dev/null 2>/dev/null
 
 # cada 10 minutos correr el sync para vimwiki y dotfiles

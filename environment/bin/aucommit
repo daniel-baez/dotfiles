@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -e
+set -xe
 
 if [ "$#" -lt 1  ] || ! [ -d "$1"  ]; then
 	echo "Usage: $0 DIRECTORY [update|sync]" >&2

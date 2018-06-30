@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -x
+set -e
 
 function usage() {
 	echo "Usage: $0 DIRECTORY [update|sync]" >&2
@@ -28,8 +28,12 @@ function doUpdate() {
     return 0
   fi
 
+  set -x
+
   git -C $directory checkout master 1>/dev/null
   git -C $directory pull 1>/dev/null
+
+  set +x
 
 	# To add changes in another branch adds the complexity of
 	# Merging in yesterdays branches
@@ -40,9 +44,13 @@ function doUpdate() {
 function doSync() {
 	local readonly now=$(date +'%Y-%m-%d %HH:%MM')
 
+  set -x
+
   git -C $directory add --all 1>/dev/null
   git -C $directory commit -m"Auto commit at: $now" 1>/dev/null
   git -C $directory push origin 1>/dev/null
+
+  set +x
 }
 
 # removes locks that aren't from today

@@ -1,10 +1,14 @@
 #!/bin/sh
 
-set -xe
+set -x
 
-if [ "$#" -lt 1  ] || ! [ -d "$1"  ]; then
+function usage() {
 	echo "Usage: $0 DIRECTORY [update|sync]" >&2
 	exit 1
+}
+
+if [ "$#" -lt 1  ] || ! [ -d "$1"  ]; then
+  usage
 fi
 
 readonly directory=$1
@@ -24,8 +28,8 @@ function doUpdate() {
     return 0
   fi
 
-  git -C $directory checkout master
-  git -C $directory pull
+  git -C $directory checkout master 1>/dev/null
+  git -C $directory pull 1>/dev/null
 
 	# To add changes in another branch adds the complexity of
 	# Merging in yesterdays branches
@@ -36,9 +40,9 @@ function doUpdate() {
 function doSync() {
 	local readonly now=$(date +'%Y-%m-%d %HH:%MM')
 
-  git -C $directory add --all
-  git -C $directory commit -m"Auto commit at: $now"
-  git -C $directory push origin
+  git -C $directory add --all 1>/dev/null
+  git -C $directory commit -m"Auto commit at: $now" 1>/dev/null
+  git -C $directory push origin 1>/dev/null
 }
 
 # removes locks that aren't from today
@@ -55,8 +59,7 @@ if [ "$#" -eq 2  ]; then
 		doSync
 	fi
 else
-	doUpdate
-	doSync
+  usage
 fi
 
 removeLocks

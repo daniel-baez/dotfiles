@@ -1,11 +1,11 @@
 #!/bin/sh
 
-# short for (daniel reinstall crontab)
-# drecron
+# short for (daniel editr crontab)
+# decron is a replacement for `crontab -e`
 
 currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 mainCrontabFile="$currentDir/../config/crontab/main.cron"
 
-crontab $mainCrontabFile
-echo "dotfiles crontab installed"
+nvim $mainCrontabFile
+drecron
 

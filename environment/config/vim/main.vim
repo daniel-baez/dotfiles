@@ -33,6 +33,7 @@ autocmd TextChanged,TextChangedI *.wiki silent write
 autocmd BufRead,BufNewFile *.java set ft=java
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
 autocmd BufRead,BufNewFile *.gradle set ft=groovy
+autocmd BufRead,BufNewFile *.pipeline set ft=groovy
 autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes

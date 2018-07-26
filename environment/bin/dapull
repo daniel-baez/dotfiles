@@ -1,0 +1,20 @@
+#!/bin/sh
+
+set -x
+
+function pullWiki() {
+  pushd $VIMWIKI
+  git checkout master
+  git pull
+  popd
+}
+
+function pullDotfiles() {
+  pushd $DOTFILES
+  git checkout master
+  git pull
+  popd
+}
+
+pullWiki
+pullDotfiles

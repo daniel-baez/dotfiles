@@ -6,6 +6,10 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+" Javascript
+Plugin 'ternjs/tern_for_vim'
+Plugin 'pangloss/vim-javascript' " JavaScript
+
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'google/vim-jsonnet'
 Plugin 'tpope/vim-dispatch'
@@ -29,7 +33,6 @@ Plugin 'mileszs/ack.vim'
 Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki' " personal management
 Plugin 'kchmck/vim-coffee-script' " CoffeeScript
-Plugin 'pangloss/vim-javascript' " JavaScript
 Plugin 'mxw/vim-jsx'
 Plugin 'tfnico/vim-gradle' " Gradle
 Plugin 'joukevandermaas/vim-ember-hbs'

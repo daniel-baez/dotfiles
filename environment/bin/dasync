@@ -1,0 +1,21 @@
+#!/bin/sh
+#!/bin/sh
+
+set -xe
+
+function syncWiki() {
+  pushd $VIMWIKI
+  git add --all .
+  git commit -m"sync at: $(date)"
+  popd
+}
+
+function syncDotfiles() {
+  pushd $DOTFILES
+  git add --all .
+  git commit -m"sync at: $(date)"
+  popd
+}
+
+syncWiki
+syncDotfiles

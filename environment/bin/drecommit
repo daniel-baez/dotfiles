@@ -1,4 +1,4 @@
 #!/bin/sh
 
-git commit -a --reuse-message=HEAD
+git commit --reuse-message=HEAD
 git push origin

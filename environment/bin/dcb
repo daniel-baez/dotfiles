@@ -9,9 +9,10 @@ branch=$(git branch \
 	| sed -E -e 's/^ \+//' \
 	| sed -E -e 's/ \+$//')
 
-echo $branch
-
 if [ -x "$(command -v pbcopy)"  ]; then
 	echo $branch | pbcopy
+  echo "branch: '$branch' has been copied to your clipboard"
+else
+	echo $branch
 fi
 

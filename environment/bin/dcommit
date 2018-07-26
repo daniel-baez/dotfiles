@@ -4,7 +4,7 @@
 # 
 # is a template for command:
 #
-# `git add --all . && git commit -am"<TICKET_NUMBER>: some message you want"`
+# `git commit -am"<TICKET_NUMBER>: some message you want"`
 # 
 # <TICKET_NUMBER> is taken from the branch name
 
@@ -14,6 +14,5 @@ readonly message="$@"
 
 set -ex
 
-# git add --all .
 git commit -m"$ticketNumber: $message"
 git push origin

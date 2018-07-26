@@ -14,5 +14,8 @@ echo "$ticket"
 
 if [ -x "$(command -v pbcopy)"  ]; then
 	echo $ticket | pbcopy
+	echo "ticket: '$ticket' has been copied to your clipboard"
+else
+  echo "$ticket"
 fi
 

@@ -1,12 +1,13 @@
 #!/bin/sh
 #!/bin/sh
 
-set -xe
+set -x
 
 function syncWiki() {
   pushd $VIMWIKI
   git add --all .
   git commit -m"sync at: $(date)"
+  git push origin
   popd
 }
 
@@ -14,6 +15,7 @@ function syncDotfiles() {
   pushd $DOTFILES
   git add --all .
   git commit -m"sync at: $(date)"
+  git push origin
   popd
 }
 

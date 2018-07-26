@@ -8,11 +8,21 @@
 # 
 # <TICKET_NUMBER> is taken from the branch name
 
+branch=$(git branch \
+	| grep '*' \
+	| sed -Ee 's/^[* ]+//' \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
 
-readonly ticketNumber=$(dct)
+ticket=$(echo $branch \
+	| cut -d_ -f1 \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+
 readonly message="$@"
 
 set -ex
 
-git commit -m"$ticketNumber: $message"
+git commit -m"$ticket: $message"
 git push origin

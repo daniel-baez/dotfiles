@@ -5,7 +5,13 @@
 # I usually have branch names like: SK-1231_featureY, IPD-12312_featureX, etc...
 # this utility outputs the ticket name if any
 
-ticket=$(dcb \
+branch=$(git branch \
+	| grep '*' \
+	| sed -Ee 's/^[* ]+//' \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+ticket=$(echo $branch \
 	| cut -d_ -f1 \
 	| sed -E -e 's/^ \+//' \
 	| sed -E -e 's/ \+$//')

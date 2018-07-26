@@ -9,4 +9,5 @@ echo $revision
 
 if [ -x "$(command -v pbcopy)"  ]; then
 	echo $revision | pbcopy
+	echo "revision '$revision' has been copied to your clipboard"
 fi

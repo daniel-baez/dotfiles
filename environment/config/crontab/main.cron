@@ -2,24 +2,16 @@
 */5 * * * * /usr/local/bin/task sync 1>/dev/null 2>/dev/null
 
 # every minute, rebuild html version of personal wiki
-* * * * * $HOME/workspace/dotfiles/environment/bin/publish-wiki 1>/dev/null 2>/dev/null
-
-# cada minuto correr el update para vimwiki y dotfiles
-# * * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki update 
-# * * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles update 1>/dev/null 2>/dev/null
-
-# cada 10 minutos correr el sync para vimwiki y dotfiles
-# */10 * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/vimwiki sync 1>/dev/null 2>/dev/null
-# */10 * * * * $HOME/workspace/dotfiles/environment/bin/aucommit $HOME/workspace/dotfiles sync 1>/dev/null 2>/dev/null
+* * * * * $HOME/workspace/dotfiles/environment/bin/publish-wiki 1>/dev/null 2>&1
 
 # update vim plugins every hour
-0 * * * * $HOME/workspace/dotfiles/environment/bin/update-vim-plugins 1>/dev/null 2>/dev/null
+0 * * * * $HOME/workspace/dotfiles/environment/bin/update-vim-plugins 1>/dev/null 2>&1
 
 # update tmux plugins every hour
-0 * * * * $HOME/.tmux/plugins/tpm/bindings/update_plugins 1>/dev/null 2>/dev/null
+0 * * * * $HOME/.tmux/plugins/tpm/bindings/update_plugins 1>/dev/null 2>&1
 
 # diariamente remueve los screenshot mas viejos que una semana
-30 * * * * find $HOME/Desktop/ -type f -name '*.png' -atime +5h -delete 1>/dev/null 2>/dev/null
+30 * * * * find $HOME/Desktop/ -type f -name '*.png' -atime +5h -delete 1>/dev/null 2>&1
 
 # diariamente remueve la BASURA mas vieja que una semana de downloads
-30 * * * * find $HOME/Downloads/ -Btime +1w -delete 1>/dev/null 2>/dev/null
+30 * * * * find $HOME/Downloads/ -Btime +1w -delete 1>/dev/null 2>&1

@@ -14,9 +14,9 @@
 # Files
 data.location=~/.task
 
-taskd.certificate=/Users/daplay/certs/taskwarrior/private.certificate.pem
-taskd.key=/Users/daplay/certs/taskwarrior/private.key.pem
-taskd.ca=/Users/daplay/certs/taskwarrior/ca.cert.pem
+taskd.certificate=~/certs/taskwarrior/private.certificate.pem
+taskd.key=~/certs/taskwarrior/private.key.pem
+taskd.ca=~/certs/taskwarrior/ca.cert.pem
 taskd.server=taskwarrior.inthe.am:53589
 taskd.credentials=inthe_am/daplay/2b453d61-188b-4dba-8e69-292ea39caf3b
 taskd.trust=ignore hostname

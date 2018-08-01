@@ -158,6 +158,7 @@ command! DtoggleNumbers :setlocal nu!
 nmap ,dn :DtoggleNumbers<CR>
 nmap ,dR :DvimrcReload<CR>
 nmap ,dt :NERDTreeToggle<CR>
+nmap ,dT :NERDTreeFind<CR>
 nmap ,dov :DvimrcOpen<CR>
 nmap ,doV :DvimrcTabOpen<CR>
 nmap ,dot :DtmuxconfigOpen<CR>

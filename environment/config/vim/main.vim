@@ -37,10 +37,10 @@ autocmd BufRead,BufNewFile *.pipeline set ft=groovy
 autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
-au BufRead,BufNewFile *.md setlocal textwidth=80
 
 "" indents
 au BufRead,BufNewFile *.md setlocal textwidth=80
+au BufRead,BufNewFile *.wiki setlocal textwidth=80
 
 " ignores for control-p
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo

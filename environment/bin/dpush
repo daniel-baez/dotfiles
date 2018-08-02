@@ -1,0 +1,11 @@
+#!/bin/sh
+
+branch=$(git branch \
+	| grep '*' \
+	| sed -Ee 's/^[* ]+//' \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+set -ex
+
+git push -u origin $branch

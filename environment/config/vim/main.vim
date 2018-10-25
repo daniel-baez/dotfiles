@@ -11,6 +11,8 @@ set nopaste " it's a terrible idea to leave this on see: 'help pastetoggle'
 
 set clipboard=unnamed " http://stackoverflow.com/questions/39645253/clipboard-failure-in-tmux-vim-after-upgrading-to-macos-sierra
 
+let g:terraform_align = 1
+
 " NERDTree Bookmards
 let g:NERDTreeBookmarksFile = expand('$DOTFILES') . '/environment/config/vim/NERDTreeBookmarks'
 
@@ -31,6 +33,8 @@ autocmd TextChanged,TextChangedI *.wiki silent write
 
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
+au FileType java setl sw=4 sts=4 ts=4
+
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
 autocmd BufRead,BufNewFile *.gradle set ft=groovy
 autocmd BufRead,BufNewFile *.pipeline set ft=groovy
@@ -47,10 +51,18 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
 
-" ignores for control-p
+" CONTROL-P
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_root_markers = ['run', 'pom.xml']
+let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json']
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+let g:ctrlp_working_path_mode = 'rwa'
+let g:ctrlp_switch_buffer = 'et'
+
+" Ack uses ag
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink

@@ -6,6 +6,9 @@ set rtp+=~/.vim/bundle/Vundle.vim
 
 call vundle#begin()
 
+" Google Cloud Platform
+Plugin 'hashivim/vim-terraform'
+
 " Javascript
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript' " JavaScript

@@ -11,6 +11,7 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript' " JavaScript
 
 Plugin 'blindFS/vim-taskwarrior'
+Plugin 'jimmyhchan/dustjs.vim.git'
 Plugin 'google/vim-jsonnet'
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-obsession'

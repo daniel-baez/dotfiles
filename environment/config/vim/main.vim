@@ -38,6 +38,11 @@ autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
 
+
+" esto necesita instalar `npm install -g prettier`
+autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+
 "" indents
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
@@ -139,6 +144,10 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
 command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 " comandos que abren archivos
 

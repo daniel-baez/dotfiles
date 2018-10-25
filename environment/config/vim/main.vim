@@ -157,10 +157,6 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 
 command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
 
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
-
 " comandos que abren archivos
 
 command! DvimrcReload :source ~/.vimrc | :echo 'Configuration reloaded :)'

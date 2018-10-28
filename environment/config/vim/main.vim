@@ -88,7 +88,7 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-au BufEnter *.clj,build.boot RainbowParenthesesActivate
+au BufEnter *.clj,*.cljc,*.cljs,build.boot RainbowParenthesesActivate
 au Syntax clojure RainbowParenthesesLoadRound
 au Syntax clojure RainbowParenthesesLoadSquare
 au Syntax clojure RainbowParenthesesLoadBraces

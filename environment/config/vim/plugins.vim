@@ -47,12 +47,14 @@ Plugin 'tpope/vim-jdaddy' " json
 Plugin 'rdolgushin/groovy.vim'
 
 "" Clojure
+Plugin 'bhurlow/vim-parinfer'
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'kien/rainbow_parentheses.vim'
+Plugin 'snoe/clj-refactor.nvim'
 
 "" colors
 "" Plugin 'altercation/vim-colors-solarized'

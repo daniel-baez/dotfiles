@@ -88,6 +88,11 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
+" Default
+let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 1
+
+
 au BufEnter *.clj,*.cljc,*.cljs,build.boot RainbowParenthesesActivate
 au Syntax clojure RainbowParenthesesLoadRound
 au Syntax clojure RainbowParenthesesLoadSquare
@@ -194,3 +199,6 @@ set fileencodings=ucs-bom,utf8,prc
 set guifont=Monaco:h11
 set guifontwide=NSimsun:h12
 
+""
+"" In selection mode: \a searches using Ack
+vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>

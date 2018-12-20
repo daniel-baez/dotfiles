@@ -39,8 +39,14 @@ Plugin 'kchmck/vim-coffee-script' " CoffeeScript
 Plugin 'mxw/vim-jsx'
 Plugin 'tfnico/vim-gradle' " Gradle
 Plugin 'joukevandermaas/vim-ember-hbs'
-Plugin 'tmux-plugins/vim-tmux' " tmux.conf
+
+Plugin 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
+Plugin 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux
+
 Plugin 'tpope/vim-jdaddy' " json
+
+" context info: git and other stuff
+Plugin 'vim-airline/vim-airline'
 
 "" Plugin 'groovy.vim' " Groovy
 Plugin 'rdolgushin/groovy.vim'

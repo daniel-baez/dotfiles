@@ -46,6 +46,11 @@ autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
 
+
+" esto necesita instalar `npm install -g prettier`
+autocmd FileType javascript set formatprg=prettier\ --stdin
+" autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"
+
 "" indents
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
@@ -53,7 +58,7 @@ au BufRead,BufNewFile *.wiki setlocal textwidth=80
 " CONTROL-P
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json']
+let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_switch_buffer = 'et'
@@ -87,7 +92,12 @@ let g:rbpt_colorpairs = [
     \ ['red',         'firebrick3'],
     \ ]
 
-au BufEnter *.clj,build.boot RainbowParenthesesActivate
+" Default
+let g:clojure_align_multiline_strings = 1
+let g:clojure_align_subforms = 1
+
+
+au BufEnter *.clj,*.cljc,*.cljs,build.boot RainbowParenthesesActivate
 au Syntax clojure RainbowParenthesesLoadRound
 au Syntax clojure RainbowParenthesesLoadSquare
 au Syntax clojure RainbowParenthesesLoadBraces
@@ -193,3 +203,6 @@ set fileencodings=ucs-bom,utf8,prc
 set guifont=Monaco:h11
 set guifontwide=NSimsun:h12
 
+""
+"" In selection mode: \a searches using Ack
+vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>

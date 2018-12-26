@@ -2,7 +2,6 @@
 filetype plugin indent on
 filetype on
 
-
 " Jsonnet. Call Jsonnet by means of :Jsonnet, use 1 to enable on save filtering
 let g:jsonnet_fmt_on_save = 0
 
@@ -55,8 +54,13 @@ autocmd FileType javascript set formatprg=prettier\ --stdin
 au BufRead,BufNewFile *.md setlocal textwidth=80
 au BufRead,BufNewFile *.wiki setlocal textwidth=80
 
+" Save for regular ppl
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
 " CONTROL-P
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo,*/node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
@@ -95,6 +99,8 @@ let g:rbpt_colorpairs = [
 " Default
 let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
+
+let g:clj_fmt_autosave = 1
 
 
 au BufEnter *.clj,*.cljc,*.cljs,build.boot RainbowParenthesesActivate
@@ -147,7 +153,6 @@ set number
 
 "" font and color
 colorscheme desert
-" colorscheme zenburn
 
 " vim window options
 set guioptions-=m  "remove menu bar

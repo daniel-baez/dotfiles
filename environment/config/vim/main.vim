@@ -68,6 +68,7 @@ let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standar
 " let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'
+let g:ctrlp_extensions = ['tag']
 
 " Ack uses ag
 if executable('ag')
@@ -81,22 +82,22 @@ nmap <Leader>wq <Plug>VimwikiVSplitLink
 
 " Clojure
 let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
+      \ ['brown',       'RoyalBlue3'],
+      \ ['Darkblue',    'SeaGreen3'],
+      \ ['darkgray',    'DarkOrchid3'],
+      \ ['darkgreen',   'firebrick3'],
+      \ ['darkcyan',    'RoyalBlue3'],
+      \ ['darkred',     'SeaGreen3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['brown',       'firebrick3'],
+      \ ['gray',        'RoyalBlue3'],
+      \ ['darkmagenta', 'DarkOrchid3'],
+      \ ['Darkblue',    'firebrick3'],
+      \ ['darkgreen',   'RoyalBlue3'],
+      \ ['darkcyan',    'SeaGreen3'],
+      \ ['darkred',     'DarkOrchid3'],
+      \ ['red',         'firebrick3'],
+      \ ]
 
 " Default
 let g:clojure_align_multiline_strings = 1
@@ -120,13 +121,13 @@ nmap <F7> :TagbarToggle<CR>
 let g:html_indent_inctags = "html,body,head,tbody"
 
 function! FormatprgLocal(filter)
-if !empty(v:char)
-  return 1
-else
-  let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.a:filter
-  echo l:command
-  execute l:command
-endif
+  if !empty(v:char)
+    return 1
+  else
+    let l:command = v:lnum.','.(v:lnum+v:count-1).'!'.a:filter
+    echo l:command
+    execute l:command
+  endif
 endfunction
 
 if has("autocmd")

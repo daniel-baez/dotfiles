@@ -13,6 +13,7 @@ Plugin 'hashivim/vim-terraform'
 " Javascript
 Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript' " JavaScript
+Plugin 'tpope/vim-abolish'
 
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'jimmyhchan/dustjs.vim.git'
@@ -38,7 +39,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'vimwiki/vimwiki' " personal management
 Plugin 'kchmck/vim-coffee-script' " CoffeeScript
 Plugin 'mxw/vim-jsx'
-Plugin 'tfnico/vim-gradle' " Gradle
+" Plugin 'tfnico/vim-gradle' " Gradle
+Plugin 'gisphm/vim-gradle' " Gradle2
+
 Plugin 'joukevandermaas/vim-ember-hbs'
 
 " HTML

@@ -12,10 +12,12 @@ function workspace() {
 
   if [[ $# -eq 1 ]] ; then
     dirname="$HOME/workspace/$1"
-
-    # if it doesn't exists, create directory
-    [ -d $dirname ] || mkdir $dirname
   fi
-  pushd $dirname
+
+  if [ -d $dirname ] ; then
+    pushd $dirname;
+  else
+    echo "Directory: $dirname doesn't exists"
+  fi
 }
 

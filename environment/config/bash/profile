@@ -2,6 +2,7 @@
 
 # loads every other file in this same directory
 currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+binDir="$currentDir/../../bin"
 
 while read file
 do
@@ -17,5 +18,9 @@ vim
 workspace
 EOM
 
+# makes tools under dotfiles/environments/bin available
+export PATH="$binDir:$PATH"
+
 unset file;
 unset currentDir;
+unset binDir;

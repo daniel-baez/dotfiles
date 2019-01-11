@@ -41,6 +41,16 @@ Plugin 'mxw/vim-jsx'
 Plugin 'tfnico/vim-gradle' " Gradle
 Plugin 'joukevandermaas/vim-ember-hbs'
 
+" HTML
+Plugin 'mattn/emmet-vim'
+Plugin 'tmhedberg/matchit'
+
+" Provides Snippets (templates based on keywords)
+" Track the engine.
+Plugin 'SirVer/ultisnips'
+" Snippets are separated from the engine. Add this if you want them:
+Plugin 'honza/vim-snippets'
+
 Plugin 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
 Plugin 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux
 
@@ -55,16 +65,18 @@ Plugin 'rdolgushin/groovy.vim'
 "" Clojure
 " Plugin 'bhurlow/vim-parinfer'
 Plugin 'venantius/vim-cljfmt'
-Plugin 'guns/vim-slamhound' " Al parecer esta wea resuelve el tema de editar el namespace
+" Al parecer esta wea resuelve el tema de editar el namespace
+Plugin 'guns/vim-slamhound' 
 Plugin 'guns/vim-clojure-static'
-Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
+
+" let g:salve_auto_start_repl = 1
 Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fireplace'
+Plugin 'tpope/vim-salve' 
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'kien/rainbow_parentheses.vim'
 Plugin 'snoe/clj-refactor.nvim'
-
 
 call vundle#end()            " required
 filetype plugin indent on    " required

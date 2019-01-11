@@ -13,7 +13,7 @@
 # tmux new-session -s `session-name` sets session name
 # tmux new-session -n `window-name` sets window name
 
-readonly startVim="NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim -c 'VimwikiIndex' -c 'vsplit' -c 'VimwikiMakeDiaryNote'"
+readonly startVim="nvim -c 'VimwikiIndex' -c 'vsplit' -c 'VimwikiMakeDiaryNote'"
 
 if [[ "$TMUX" ]]; then 
   eval $startVim
@@ -21,6 +21,8 @@ if [[ "$TMUX" ]]; then
 fi;
 
 hoy
+
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 eval tmux -u new-session -A \
   -c $HOME/workspace \

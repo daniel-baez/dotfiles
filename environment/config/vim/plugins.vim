@@ -18,7 +18,6 @@ Plugin 'tpope/vim-abolish'
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'jimmyhchan/dustjs.vim.git'
 Plugin 'google/vim-jsonnet'
-Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-obsession'
 Plugin 'justinmk/vim-dirvish'
 Plugin 'calendar.vim'
@@ -59,17 +58,17 @@ Plugin 'rdolgushin/groovy.vim'
 "" Clojure
 " Plugin 'bhurlow/vim-parinfer'
 Plugin 'venantius/vim-cljfmt'
+Plugin 'guns/vim-slamhound' " Al parecer esta wea resuelve el tema de editar el namespace
 Plugin 'guns/vim-clojure-static'
 Plugin 'tpope/vim-salve' " let g:salve_auto_start_repl = 1
+Plugin 'tpope/vim-dispatch'
 Plugin 'tpope/vim-fireplace'
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'kien/rainbow_parentheses.vim'
-" Plugin 'snoe/clj-refactor.nvim'
+Plugin 'snoe/clj-refactor.nvim'
 
-"" colors
-"" Plugin 'altercation/vim-colors-solarized'
-Plugin 'jnurmine/Zenburn'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
+

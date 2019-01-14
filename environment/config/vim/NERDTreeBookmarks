@@ -1,6 +1,6 @@
-aurora ~/workspace/aurora
 dotfiles ~/workspace/dotfiles
 vimwiki ~/vimwiki
 workspace ~/workspace
-notifications ~/workspace/notifications
 
+aurora ~/workspace/aurora
+notifications ~/workspace/notifications

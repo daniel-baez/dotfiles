@@ -15,6 +15,8 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript' " JavaScript
 Plugin 'tpope/vim-abolish'
 
+Plugin 'airblade/vim-rooter' " Cambia el directorio automaticamente
+
 Plugin 'blindFS/vim-taskwarrior'
 Plugin 'jimmyhchan/dustjs.vim.git'
 Plugin 'google/vim-jsonnet'

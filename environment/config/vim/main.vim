@@ -266,3 +266,6 @@ endfunction
 " Indent on save hook
 autocmd BufWritePre <buffer> call Indent()
 
+" local directory follows file
+" autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif
+let g:rooter_change_directory_for_non_project_files = 'current'

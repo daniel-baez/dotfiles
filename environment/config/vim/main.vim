@@ -264,7 +264,7 @@ function! Indent()
 endfunction
 
 " Indent on save hook
-autocmd BufWritePre <buffer> call Indent()
+"  autocmd BufWritePre <buffer> call Indent()
 
 " local directory follows file
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif

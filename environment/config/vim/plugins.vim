@@ -15,9 +15,6 @@ Plugin 'ternjs/tern_for_vim'
 Plugin 'pangloss/vim-javascript' " JavaScript
 Plugin 'tpope/vim-abolish'
 
-Plugin 'ludovicchabant/vim-gutentags.git'  " Automatically update tags
-
-
 Plugin 'airblade/vim-rooter' " Cambia el directorio automaticamente
 
 Plugin 'blindFS/vim-taskwarrior'

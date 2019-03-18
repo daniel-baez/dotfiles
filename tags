@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/3d01d99/
+,dR	environment/config/vim/main.vim	/^nmap ,dR :DvimrcReload<CR>$/;"	m
+,dT	environment/config/vim/main.vim	/^nmap ,dT :NERDTreeFind<CR>$/;"	m
+,dn	environment/config/vim/main.vim	/^nmap ,dn :DtoggleNumbers<CR>$/;"	m
+,doBB	environment/config/vim/main.vim	/^nmap ,doBB :DbashrcTabOpen<CR>$/;"	m
+,doBP	environment/config/vim/main.vim	/^nmap ,doBP :DbashprofileTabOpen<CR>$/;"	m
+,doT	environment/config/vim/main.vim	/^nmap ,doT :DtmuxconfigTabOpen<CR>$/;"	m
+,doV	environment/config/vim/main.vim	/^nmap ,doV :DvimrcTabOpen<CR>$/;"	m
+,dobb	environment/config/vim/main.vim	/^nmap ,dobb :DbashrcOpen<CR>$/;"	m
+,dobp	environment/config/vim/main.vim	/^nmap ,dobp :DbashprofileOpen<CR>$/;"	m
+,dot	environment/config/vim/main.vim	/^nmap ,dot :DtmuxconfigOpen<CR>$/;"	m
+,dov	environment/config/vim/main.vim	/^nmap ,dov :DvimrcOpen<CR>$/;"	m
+,dt	environment/config/vim/main.vim	/^nmap ,dt :NERDTreeToggle<CR>$/;"	m
+<C-L>	environment/config/vim/main.vim	/^  nnoremap <silent> <C-L> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>$/;"	m
+<C-S>	environment/config/vim/main.vim	/^inoremap <silent> <C-S>         <C-O>:update<CR>$/;"	m
+<C-S>	environment/config/vim/main.vim	/^noremap <silent> <C-S>          :update<CR>$/;"	m
+<C-S>	environment/config/vim/main.vim	/^vnoremap <silent> <C-S>         <C-C>:update<CR>$/;"	m
+<F7>	environment/config/vim/main.vim	/^nmap <F7> :TagbarToggle<CR>$/;"	m
+<Leader>a	environment/config/vim/main.vim	/^vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>$/;"	m
+<Leader>we	environment/config/vim/main.vim	/^nmap <Leader>we <Plug>VimwikiSplitLink$/;"	m
+<Leader>wq	environment/config/vim/main.vim	/^nmap <Leader>wq <Plug>VimwikiVSplitLink$/;"	m
+Copy Mode Keybindings	keystrokes.md	/^### Copy Mode Keybindings$/;"	S
+DbashprofileOpen	environment/config/vim/main.vim	/^command! DbashprofileOpen :e ~\/.bash_profile$/;"	c
+DbashprofileTabOpen	environment/config/vim/main.vim	/^command! DbashprofileTabOpen :tabnew | :e ~\/.bash_profile$/;"	c
+DbashrcOpen	environment/config/vim/main.vim	/^command! DbashrcOpen :e ~\/.bashrc$/;"	c
+DbashrcTabOpen	environment/config/vim/main.vim	/^command! DbashrcTabOpen :tabnew | :e ~\/.bashrc$/;"	c
+DclojurescriptPiggieback	environment/config/vim/main.vim	/^command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl\/repl-env)$/;"	c
+DtmuxconfigOpen	environment/config/vim/main.vim	/^command! DtmuxconfigOpen :e ~\/.tmux.conf$/;"	c
+DtmuxconfigTabOpen	environment/config/vim/main.vim	/^command! DtmuxconfigTabOpen tabnew | :e ~\/.tmux.conf$/;"	c
+DtoggleNumbers	environment/config/vim/main.vim	/^command! DtoggleNumbers :setlocal nu!$/;"	c
+DvimrcOpen	environment/config/vim/main.vim	/^command! DvimrcOpen :e ~\/.vimrc$/;"	c
+DvimrcReload	environment/config/vim/main.vim	/^command! DvimrcReload :source ~\/.vimrc | :echo 'Configuration reloaded :)'$/;"	c
+DvimrcTabOpen	environment/config/vim/main.vim	/^command! DvimrcTabOpen :tabnew | :e ~\/.vimrc$/;"	c
+FormatprgLocal	environment/config/vim/main.vim	/^function! FormatprgLocal(filter)$/;"	f
+Indent	environment/config/vim/main.vim	/^function! Indent()$/;"	f
+Keybindings	keystrokes.md	/^### Keybindings$/;"	S
+Preserve	environment/config/vim/main.vim	/^function! Preserve(command)$/;"	f
+Regex Search	keystrokes.md	/^### Regex Search $/;"	S
+doSync	environment/bin/aucommit	/^function doSync() {$/;"	f
+doUpdate	environment/bin/aucommit	/^function doUpdate() {$/;"	f
+dotfiles	environment/config/bash/scripts/aliases.sh	/^alias dotfiles='pushd $DOTFILES'$/;"	a
+downloads	environment/config/bash/scripts/aliases.sh	/^alias downloads='pushd $DOWNLOADS'$/;"	a
+dreload	environment/config/bash/scripts/dreload.sh	/^function dreload() {$/;"	f
+g:NERDTreeBookmarksFile	environment/config/vim/main.vim	/^let g:NERDTreeBookmarksFile = expand('$DOTFILES') . '\/environment\/config\/vim\/NERDTreeBookmar/;"	v
+g:UltiSnipsExpandTrigger	environment/config/vim/main.vim	/^let g:UltiSnipsExpandTrigger="<tab>"$/;"	v
+g:UltiSnipsJumpBackwardTrigger	environment/config/vim/main.vim	/^let g:UltiSnipsJumpBackwardTrigger="<c-z>"$/;"	v
+g:UltiSnipsJumpForwardTrigger	environment/config/vim/main.vim	/^let g:UltiSnipsJumpForwardTrigger="<c-b>"$/;"	v
+g:ackprg	environment/config/vim/main.vim	/^  let g:ackprg = 'ag --vimgrep'$/;"	v
+g:clj_fmt_autosave	environment/config/vim/main.vim	/^let g:clj_fmt_autosave = 1$/;"	v
+g:clojure_align_multiline_strings	environment/config/vim/main.vim	/^let g:clojure_align_multiline_strings = 1$/;"	v
+g:clojure_align_subforms	environment/config/vim/main.vim	/^let g:clojure_align_subforms = 1$/;"	v
+g:ctrlp_custom_ignore	environment/config/vim/main.vim	/^let g:ctrlp_custom_ignore = '\\v[\\\/]\\.(git|hg|svn)$'$/;"	v
+g:ctrlp_extensions	environment/config/vim/main.vim	/^let g:ctrlp_extensions = ['tag']$/;"	v
+g:ctrlp_root_markers	environment/config/vim/main.vim	/^let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.j/;"	v
+g:ctrlp_switch_buffer	environment/config/vim/main.vim	/^let g:ctrlp_switch_buffer = 'et'$/;"	v
+g:ctrlp_user_command	environment/config/vim/main.vim	/^let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']$/;"	v
+g:ctrlp_working_path_mode	environment/config/vim/main.vim	/^let g:ctrlp_working_path_mode = 'ra'$/;"	v
+g:html_indent_inctags	environment/config/vim/main.vim	/^let g:html_indent_inctags = "html,body,head,tbody"$/;"	v
+g:jsonnet_fmt_on_save	environment/config/vim/main.vim	/^let g:jsonnet_fmt_on_save = 0$/;"	v
+g:rbpt_colorpairs	environment/config/vim/main.vim	/^let g:rbpt_colorpairs = [$/;"	v
+g:rooter_change_directory_for_non_project_files	environment/config/vim/main.vim	/^let g:rooter_change_directory_for_non_project_files = 'current'$/;"	v
+g:terraform_align	environment/config/vim/main.vim	/^let g:terraform_align = 1$/;"	v
+get_day_header	environment/bin/hoy	/^function get_day_header() {$/;"	f
+get_last_written_day	environment/bin/hoy	/^function get_last_written_day() {$/;"	f
+gradle	environment/config/bash/scripts/aliases.sh	/^alias gradle='gradlew'$/;"	a
+home	environment/config/bash/scripts/aliases.sh	/^alias home='pushd $HOME'$/;"	a
+in	environment/config/bash/scripts/taskwarrior.sh	/^alias in='task add +in'$/;"	a
+join pane from	environment/config/tmux/tmux.conf	/^bind-key + command-prompt -p "join pane from:"  "join-pane -s '%%'"$/;"	k
+pandoc_pipeline	environment/config/vim/main.vim	/^  let pandoc_pipeline  = "pandoc --from=html --to=markdown"$/;"	v
+pandoc_pipeline	environment/config/vim/main.vim	/^  let pandoc_pipeline .= " | pandoc --from=markdown --to=html"$/;"	v
+pullDotfiles	environment/bin/dapull	/^function pullDotfiles() {$/;"	f
+pullWiki	environment/bin/dapull	/^function pullWiki() {$/;"	f
+read_and_review	environment/config/bash/scripts/taskwarrior.sh	/^read_and_review (){$/;"	f
+removeLocks	environment/bin/aucommit	/^function removeLocks() {$/;"	f
+rnd	environment/config/bash/scripts/taskwarrior.sh	/^alias rnd='task add +rnd'$/;"	a
+rnr	environment/config/bash/scripts/taskwarrior.sh	/^alias rnr=read_and_review$/;"	a
+send pane to	environment/config/tmux/tmux.conf	/^bind-key * command-prompt -p "send pane to:"  "join-pane -t '%%'"$/;"	k
+syncDotfiles	environment/bin/dasync	/^function syncDotfiles() {$/;"	f
+syncWiki	environment/bin/dasync	/^function syncWiki() {$/;"	f
+t	environment/config/tmux/example.tmux.conf	/^bind -r C-h select-window -t :-$/;"	k
+t	environment/config/tmux/example.tmux.conf	/^bind -r C-l select-window -t :+$/;"	k
+think	environment/config/bash/scripts/taskwarrior.sh	/^alias think='tickle +1d'$/;"	a
+tick	environment/config/bash/scripts/taskwarrior.sh	/^alias tick=tickle$/;"	a
+tickle	environment/config/bash/scripts/taskwarrior.sh	/^tickle() {$/;"	f
+tools	environment/config/bash/scripts/aliases.sh	/^alias tools='pushd $TOOLS'$/;"	a
+usage	environment/bin/aucommit	/^function usage() {$/;"	f
+vim	environment/config/bash/scripts/vim.sh	/^alias vim=nvr$/;"	a
+vimwiki	environment/config/bash/scripts/aliases.sh	/^alias vimwiki='pushd $VIMWIKI'$/;"	a
+webpage_title	environment/config/bash/scripts/taskwarrior.sh	/^webpage_title (){$/;"	f
+workspace	environment/config/bash/scripts/workspace.sh	/^function workspace() {$/;"	f

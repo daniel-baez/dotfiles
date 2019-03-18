@@ -38,6 +38,7 @@ autocmd TextChanged,TextChangedI *.wiki silent write
 "" some file extensions
 autocmd BufRead,BufNewFile *.java set ft=java
 au FileType java setl sw=4 sts=4 ts=4
+au FileType groovy setl sw=4 sts=4 ts=4
 
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
 autocmd BufRead,BufNewFile *.gradle set ft=groovy

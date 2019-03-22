@@ -69,9 +69,11 @@ Plugin 'rdolgushin/groovy.vim'
 
 "" Clojure
 " Plugin 'bhurlow/vim-parinfer'
-Plugin 'venantius/vim-cljfmt'
+" Plugin 'venantius/vim-cljfmt'
+" Plugin 'guns/vim-slamhound' 
+" Plugin 'snoe/clj-refactor.nvim'
+"
 " Al parecer esta wea resuelve el tema de editar el namespace
-Plugin 'guns/vim-slamhound' 
 Plugin 'guns/vim-clojure-static'
 
 " let g:salve_auto_start_repl = 1
@@ -81,7 +83,6 @@ Plugin 'tpope/vim-salve'
 Plugin 'guns/vim-sexp'
 Plugin 'tpope/vim-sexp-mappings-for-regular-people'
 Plugin 'kien/rainbow_parentheses.vim'
-Plugin 'snoe/clj-refactor.nvim'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

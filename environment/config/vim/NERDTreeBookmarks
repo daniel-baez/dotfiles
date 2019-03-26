@@ -1,10 +1,10 @@
-aurora ~/workspace/aurora
 dotfiles ~/workspace/dotfiles
-notifications ~/workspace/notifications
-vimwiki ~/vimwiki
-weightsite ~/workspace/weightsite
-weightsite1 ~/workspace/weightsite1
-weightsite2 ~/workspace/weightsite2
 workspace ~/workspace
+aurora ~/workspace/aurora
+weightsite ~/workspace/weightsite
 mirror-maker ~/workspace/weightsite/mirror-maker
 
+notifications ~/workspace/notifications
+vimwiki ~/vimwiki
+weightsite1 ~/workspace/weightsite1
+weightsite2 ~/workspace/weightsite2

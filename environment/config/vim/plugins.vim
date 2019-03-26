@@ -17,7 +17,6 @@ Plugin 'tpope/vim-abolish'
 
 Plugin 'airblade/vim-rooter' " Cambia el directorio automaticamente
 
-Plugin 'blindFS/vim-taskwarrior'
 Plugin 'jimmyhchan/dustjs.vim.git'
 Plugin 'google/vim-jsonnet'
 Plugin 'tpope/vim-obsession'
@@ -25,7 +24,6 @@ Plugin 'justinmk/vim-dirvish'
 Plugin 'calendar.vim'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'gmarik/Vundle.vim'
-Plugin 'wakatime/vim-wakatime'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdcommenter'

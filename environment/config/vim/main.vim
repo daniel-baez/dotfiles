@@ -20,6 +20,9 @@ let g:terraform_align = 1
 " NERDTree Bookmards
 let g:NERDTreeBookmarksFile = expand('$DOTFILES') . '/environment/config/vim/NERDTreeBookmarks'
 
+" Allows to scroll using mouse
+set mouse=a
+
 "" cursor
 set nocursorline
 set nocursorcolumn

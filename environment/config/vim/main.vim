@@ -17,9 +17,6 @@ set clipboard=unnamed " http://stackoverflow.com/questions/39645253/clipboard-fa
 
 let g:terraform_align = 1
 
-" NERDTree Bookmards
-let g:NERDTreeBookmarksFile = expand('$DOTFILES') . '/environment/config/vim/NERDTreeBookmarks'
-
 " Allows to scroll using mouse
 set mouse=a
 

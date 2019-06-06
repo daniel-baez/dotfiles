@@ -173,7 +173,8 @@ set directory=~/.vim-tmp
 au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 "ver como resolver esto au FileType json setlocal equalprg=python\ -m\ json.tool\ 2>/dev/null
 
-command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
+" command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
+command! DclojurescriptPiggieback :Piggieback (cider.piggieback/cljs-repl) 
 
 " comandos que abren archivos
 

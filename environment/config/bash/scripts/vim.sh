@@ -2,9 +2,7 @@
 
 set -o vi
 
-# export LC_ALL=en
+export LC_ALL=en_US
 export EDITOR=nvim
-# export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-# export EDITOR=nvr
 
 alias vim=nvr

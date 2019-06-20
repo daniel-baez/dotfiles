@@ -60,7 +60,7 @@ Plugin 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux
 Plugin 'tpope/vim-jdaddy' " json
 
 " context info: git and other stuff
-Plugin 'vim-airline/vim-airline'
+" Plugin 'vim-airline/vim-airline'
 
 "" Plugin 'groovy.vim' " Groovy
 Plugin 'rdolgushin/groovy.vim'

@@ -8,9 +8,25 @@ alias tools='pushd $TOOLS'
 alias vimwiki='pushd $VIMWIKI'
 
 # build tools
-alias gradle='gradlew'
+alias gradle='./gradlew'
 
 # git
 alias dpull='git checkout master && git pull'
 alias dadd='git add --all .'
 alias dbranch='git checkout -b '
+alias dmerge='git pull && git merge origin/master'
+alias dstatus='git status'
+
+
+# Limpia la pantalla
+# si estamos usando tmux, 
+# tambien limpia el historial del panel
+function dclean() {
+  if [ -z ${TMUX_PANE+x} ]; 
+  then 
+    clear
+  else 
+    clear
+    tmux clear-history
+  fi
+}

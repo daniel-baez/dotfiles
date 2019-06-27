@@ -41,6 +41,8 @@ au FileType java setl sw=4 sts=4 ts=4
 au FileType groovy setl sw=4 sts=4 ts=4
 
 autocmd BufRead,BufNewFile *.groovy set ft=groovy
+autocmd BufRead,BufNewFile *.gsp set ft=html
+autocmd BufRead,BufNewFile *.gson set ft=groovy
 autocmd BufRead,BufNewFile *.gradle set ft=groovy
 autocmd BufRead,BufNewFile *.pipeline set ft=groovy
 autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
@@ -262,11 +264,12 @@ endfunction
 
 " Re-indent the whole buffer.
 function! Indent()
-  call Preserve('normal gg=G')
+  call Preserve('normal =-')
 endfunction
 
 " Indent on save hook
-"  autocmd BufWritePre <buffer> call Indent()
+"" "autocmd BufWritePre *.clj <buffer> call Indent()
+"" "autocmd BufWritePre *.cljs <buffer> call Indent()
 
 " local directory follows file
 " autocmd BufEnter * if expand("%:p:h") !~ '^/tmp' | silent! lcd %:p:h | endif

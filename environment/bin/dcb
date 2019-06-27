@@ -11,8 +11,7 @@ branch=$(git branch \
 
 if [ -x "$(command -v pbcopy)"  ]; then
 	echo $branch | pbcopy
-  echo "branch: '$branch' has been copied to your clipboard"
-else
-	echo $branch
+	echo "branch: '$branch' has been copied to your clipboard" 1>&2
 fi
 
+echo $branch

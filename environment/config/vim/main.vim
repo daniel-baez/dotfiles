@@ -1,7 +1,9 @@
-
 ""programming indent
 filetype plugin indent on
 filetype on
+
+"" Don't let Vim's "Found a swap file" message block input
+set shortmess=A
 
 " Jsonnet. Call Jsonnet by means of :Jsonnet, use 1 to enable on save filtering
 let g:jsonnet_fmt_on_save = 0

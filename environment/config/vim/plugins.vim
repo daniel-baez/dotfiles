@@ -63,7 +63,9 @@ Plugin 'tpope/vim-jdaddy' " json
 " Plugin 'vim-airline/vim-airline'
 
 "" Plugin 'groovy.vim' " Groovy
-Plugin 'rdolgushin/groovy.vim'
+"" "Plugin 'rdolgushin/groovy.vim'
+Plugin 'vim-scripts/groovy.vim'
+Plugin 'vim-scripts/groovyindent-unix'
 
 "" Clojure
 " Plugin 'bhurlow/vim-parinfer'

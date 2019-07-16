@@ -26,7 +26,7 @@ set mouse=a
 set nocursorline
 set nocursorcolumn
 
-""indent
+"" programming
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -107,7 +107,6 @@ let g:rbpt_colorpairs = [
 " Default
 let g:clojure_align_multiline_strings = 1
 let g:clojure_align_subforms = 1
-
 let g:clj_fmt_autosave = 1
 
 
@@ -180,18 +179,13 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! DclojurescriptPiggieback :Piggieback (cider.piggieback/cljs-repl) 
 
-" comandos que abren archivos
-
 command! DvimrcReload :source ~/.vimrc | :echo 'Configuration reloaded :)'
-command! DvimrcOpen :e ~/.vimrc
-command! DvimrcTabOpen :tabnew | :e ~/.vimrc
 command! DtmuxconfigOpen :e ~/.tmux.conf
 command! DtmuxconfigTabOpen tabnew | :e ~/.tmux.conf
 command! DbashrcOpen :e ~/.bashrc
 command! DbashrcTabOpen :tabnew | :e ~/.bashrc
 command! DbashprofileOpen :e ~/.bash_profile
 command! DbashprofileTabOpen :tabnew | :e ~/.bash_profile
-
 command! DtoggleNumbers :setlocal nu!
 
 " mappings that open files
@@ -199,8 +193,9 @@ nmap ,dn :DtoggleNumbers<CR>
 nmap ,dR :DvimrcReload<CR>
 nmap ,dt :NERDTreeToggle<CR>
 nmap ,dT :NERDTreeFind<CR>
-nmap ,dov :DvimrcOpen<CR>
-nmap ,doV :DvimrcTabOpen<CR>
+" nmap ,dov :DvimrcOpen<CR>
+map ,dov :silent! :split ~/.vimrc<CR>
+map ,doV :silent! :tabedit :e ~/.vimrc<CR>
 nmap ,dot :DtmuxconfigOpen<CR>
 nmap ,doT :DtmuxconfigTabOpen<CR>
 nmap ,dobb :DbashrcOpen<CR>
@@ -224,12 +219,12 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
-
-""
+"" Search with C-d C-f
 "" In selection mode: \a searches using Ack
-vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>
-
-
+"" In selection mode: C-d C-f searches using Ack
+"" vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>
+vnoremap <C-D><C-F> y:Ack <C-r>=fnameescape(@")<CR><CR>
+"" noremap   :Ack 
 
 
 """ INDENT ON SAVE.

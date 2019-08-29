@@ -1,4 +1,5 @@
-.gradle/
-.idea/
-*.pulled
-environment/config/vim/NERDTreeBookmarks
+.tmux/plugins/tmux-*
+.bash_history
+.local/
+home/daplay/.vim/bundle
+home/daplay/.tmux/plugins/tmux-*

@@ -13,6 +13,9 @@ call plug#begin('~/.vim/bundle')
 " Google Cloud Platform
 Plug 'hashivim/vim-terraform'
 
+" fzf
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+
 " Javascript
 Plug 'ternjs/tern_for_vim'
 Plug 'pangloss/vim-javascript' " JavaScript

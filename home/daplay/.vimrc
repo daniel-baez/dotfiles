@@ -1,6 +1,4 @@
-
-source $HOME/.plugins.vim
-
+" source $HOME/.plugins.vim
 
 ""programming indent
 filetype plugin indent on

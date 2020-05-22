@@ -12,15 +12,19 @@ alias gradle='./gradlew'
 
 # git
 alias dpull='git checkout master && git pull'
-alias dadd='git add --all .'
-alias dbranch='git checkout -b '
 alias dmerge='git pull && git merge origin/master'
-alias dstatus='git status'
+
+alias gA='git add --all'
+alias gd='git diff'
+alias gb='git checkout -b'
+alias gc='git checkout'
+alias gp='git pull'
+alias gs='git status'
 
 # kubernetes
 alias klspod='kubectl get pod'
+alias krmpod='kubectl delete pod'
 alias k='kubectl'
-
 
 # Limpia la pantalla
 # si estamos usando tmux, 

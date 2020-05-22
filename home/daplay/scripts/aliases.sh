@@ -17,6 +17,10 @@ alias dbranch='git checkout -b '
 alias dmerge='git pull && git merge origin/master'
 alias dstatus='git status'
 
+# kubernetes
+alias klspod='kubectl get pod'
+alias k='kubectl'
+
 
 # Limpia la pantalla
 # si estamos usando tmux, 

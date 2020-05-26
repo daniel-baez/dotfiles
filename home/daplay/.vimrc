@@ -10,6 +10,9 @@ set shortmess=A
 " Jsonnet. Call Jsonnet by means of :Jsonnet, use 1 to enable on save filtering
 let g:jsonnet_fmt_on_save = 0
 
+let g:UltiSnipsUsePythonVersion = 3
+
+
 "" configuraciones varias
 " set regexpengine=1
 syntax enable

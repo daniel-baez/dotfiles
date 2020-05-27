@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo :bash_profile
+echo :dotfiles .profile
 

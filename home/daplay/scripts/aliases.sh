@@ -6,6 +6,10 @@ alias e="echo"
 # ls
 alias l='ls -ltr'
 
+# tmux
+alias tmux='tmux -u'
+
+
 # base directories
 alias dotfiles='pushd $DOTFILES'
 alias home='pushd $HOME'
@@ -17,7 +21,7 @@ alias vimwiki='pushd $VIMWIKI'
 alias gradle='./gradlew'
 
 # git
-alias dpull='git checkout master && git pull' # TODO: remove this one or replace by a more useful program
+alias wip='git add --all . && git commit -m WIP && git push origin' # TODO: remove this one or replace by a more useful program
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
 
 alias ga='git add --all'

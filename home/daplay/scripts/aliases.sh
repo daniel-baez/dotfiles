@@ -7,7 +7,10 @@ alias e="echo"
 alias l='ls -ltr'
 
 # tmux
-alias tmux='tmux -u'
+alias tm='tmux -u'
+alias tls='tmux ls'
+alias ta='tmux -u attach -t'
+alias tn='tmux -u new -n'
 
 
 # base directories

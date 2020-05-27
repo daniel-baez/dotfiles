@@ -29,8 +29,8 @@ alias gp='git pull'
 alias gs='git status'
 
 # git: branches
-alias gcm="git checkout master"
-alias gcd="git checkout develop"
+alias gcm="echo 'git checkout master && git pull' &&  git checkout master && git pull"
+alias gcd="echo 'git checkout develop && git pull' &&  git checkout develop && git pull"
 
 # docker-compose
 alias dcu='docker-compose up --build'

@@ -53,10 +53,10 @@ Plug 'mattn/emmet-vim'
 Plug 'tmhedberg/matchit'
 
 " Provides Snippets (templates based on keywords)
-" Track the engine.
-Plug 'SirVer/ultisnips'
+" Track the engine.  
+"Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-Plug 'honza/vim-snippets'
+"Plug 'honza/vim-snippets'
 
 Plug 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
 Plug 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux

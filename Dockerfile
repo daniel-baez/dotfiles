@@ -1,61 +1,56 @@
-FROM archlinux/base:latest
+FROM ubuntu:18.04
+
 LABEL maintainer="Daniel Baez"
 
-# Instalación de paquetes básicos disponibles
-# En los repositorios de Archlinux
-RUN pacman --noconfirm -Syu neovim \
-      sudo \
-      ruby \
-      python \
-      xdg-utils \
-      git \
-      tmux \
-      emacs \
-      the_silver_searcher \
-      man \
-      base-devel \
-      task \
-      timew
+ENV DEBIAN_FRONTEND noninteractive
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL C.UTF-8
 
-# Crea my usuario
-RUN useradd -ms /bin/bash daplay
-# Remueve la password para el usuario `daplay`
+# Tools included in the container (debugging, yay!)
+RUN apt-get update -q \
+      && apt-get install -qqy \
+        git \
+        man \
+        software-properties-common \
+        silversearcher-ag \
+        tmux \
+        neovim
+
+RUN apt-get update -q \
+      && apt-get install -qqy \
+        sudo
+
+RUN apt-get update -q \
+      && apt-get install -qqy \
+        fish
+
+# Creates user
+RUN useradd -ms /usr/bin/fish daplay
+# makes the user password-free?
 RUN passwd -d daplay 
-# Allow daplay passwordless sudo for `daplay`
+# sudo without 
 RUN printf 'daplay ALL=(ALL) ALL\n' | tee -a /etc/sudoers 
+
+# CLEANUP
+RUN apt-get clean && \
+      rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Cambia al nuevo usuario
 USER daplay
 WORKDIR /home/daplay
 
-# Instala Yaourt una alternativa a pacman con un repositorio
-# dirigido por la comunidad
-RUN mkdir -p /home/daplay/sources && \
-      cd /home/daplay/sources && \
-      git clone https://aur.archlinux.org/package-query.git && \
-      cd package-query && \
-      makepkg -si --noconfirm && \
-      cd .. && \
-      git clone https://aur.archlinux.org/yaourt.git && \
-      cd yaourt && \
-      makepkg -si --noconfirm && \
-      cd /home/daplay
-
-# Instala neovim remote
-RUN yaourt -Sy --noconfirm neovim-remote
-
-# Crea mountpoints para `launch-docker.sh` otro archivo de este mismo repo
-VOLUME /home/daplay
-VOLUME /home/daplay/bin
+# creates workspace mountpoint
+RUN mkdir -p workspace
 VOLUME /home/daplay/workspace
 
-# Borra los archivos de instalacion e indices luego de haber instalado todo
-RUN sudo rm -f \
-    /var/cache/pacman/pkg/* \
-    /var/lib/pacman/sync/* \
-    /etc/pacman.d/mirrorlist.pacnew
+# clones dotfiles (this) repo
+RUN git clone https://github.com/daplay/dotfiles
+VOLUME /home/daplay/dotfiles
 
-WORKDIR /home/daplay
+# creates Desktop mountpoint
+RUN mkdir -p desktop
+VOLUME /home/daplay/desktop
 
-CMD ["/bin/bash"]
+CMD ["/usr/bin/fish"]
 

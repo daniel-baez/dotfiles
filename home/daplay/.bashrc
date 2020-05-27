@@ -24,7 +24,7 @@ unset file;
 unset currentDir;
 
 # is tmux set NVIM_LISTEN_ADDRESS based on tmux session name
-[ ! -z "$TMUX" ] && export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket-$(tmux display-message -p '#S')-$(tmux display-message -p '#I')
+# [ ! -z "$TMUX" ] && export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket-$(tmux display-message -p '#S')-$(tmux display-message -p '#I')
 
 
 echo :bashrc

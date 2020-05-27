@@ -8,19 +8,20 @@ shopt -s histappend
 
 # by default, the .bash_history file will hold up to 500 commands
 # lets get that way longer!
-HISTFILESIZE=1000000
-HISTSIZE=1000000
+export HISTFILESIZE=1000000
+export HISTSIZE=1000000
 
 # `ignoreboth` is a shortcut to specify options:
 # - ignorespace => avoids saving commands that start with an space
 # - ignoredups => avoids duplicates
-HISTCONTROL=ignoreboth
+# export HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 
 # the following list of commands will be ignored
-HISTIGNORE='ls:bg:fg:history:echo'
+export HISTIGNORE='ls:bg:fg:history:echo'
 
 # preprends date (%F) and time (%F) to each command
-HISTTIMEFORMAT='%F %T '
+# HISTTIMEFORMAT='%F %T '
 
 # upon saving commands to $HOME/.bash_history
 # it will break multiple line commands into single line commnads

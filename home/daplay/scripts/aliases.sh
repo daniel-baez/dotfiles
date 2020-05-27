@@ -30,6 +30,7 @@ alias gb='git checkout -b'
 alias gc='git checkout'
 alias gd='git diff'
 alias gp='git pull'
+alias gP='git push'
 alias gs='git status'
 
 # git: branches

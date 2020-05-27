@@ -12,11 +12,9 @@ aliases
 dreload
 exports
 history
+vim
+workspace
 EOM
-
-# taskwarrior
-# vim
-# workspace
 
 ## 
 ## # makes tools under dotfiles/environments/bin available

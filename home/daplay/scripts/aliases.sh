@@ -21,7 +21,7 @@ alias vimwiki='pushd $VIMWIKI'
 alias gradle='./gradlew'
 
 # git
-alias wip='git add --all . && git commit -m WIP && git push origin' # TODO: remove this one or replace by a more useful program
+alias wip='git add --all . && dcommit -m WIP && git push origin' # TODO: remove this one or replace by a more useful program
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
 
 alias ga='git add --all'

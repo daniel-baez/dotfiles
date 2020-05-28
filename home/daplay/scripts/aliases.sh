@@ -2,6 +2,7 @@
 
 # ®
 alias e="echo"
+alias h="history"
 alias c="dclean"
 alias r="dreload"
 alias l='ls -ltr'

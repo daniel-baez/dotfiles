@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Returns all the aliases
-# contatenated like this: ":a:b:c:d"
+# contatenated like this: ":a*:b:c:d"
 # this string should be appended to
 # env var HISTIGNORE in order to avoid
 # capturing aliases in history.

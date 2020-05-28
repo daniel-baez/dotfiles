@@ -21,7 +21,8 @@ EOM
 function extend_path() {
 }
 
-# reloads
+# reloads ~/.bashrc
+#
 # usage:
 #   dreload
 #

@@ -30,4 +30,9 @@ shopt -s cmdhist
 # by default, bash will save commands upon quitting your session
 # this means that, if you session crashes, you won't see a thing written :{
 # the following setting, makes bash save commands automatically
-export PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+if [ -z "$PROMPT_COMMAND" ]
+then
+  export PROMPT_COMMAND="history -a"
+else
+  export PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+fi

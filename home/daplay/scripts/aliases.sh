@@ -7,7 +7,7 @@ alias e="echo"
 alias l='ls -ltr'
 
 # tmux
-alias tm='tmux -u'
+alias t='tmux -u'
 alias tls='tmux ls'
 alias ta='tmux -u attach -t'
 alias tn='tmux -u new -n'
@@ -24,7 +24,8 @@ alias vimwiki='pushd $VIMWIKI'
 alias gradle='./gradlew'
 
 # git
-alias wip='ga && dcommit WIP && gP' # TODO: remove this one or replace by a more useful program
+alias wip='dcommit WIP && gP' # TODO: remove this one or replace by a more useful program
+alias dawip='ga && dcommit WIP && gP' # TODO: remove this one or replace by a more useful program
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
 
 alias ga='git add --all .'

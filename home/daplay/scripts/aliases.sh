@@ -2,8 +2,7 @@
 
 # ®
 alias e="echo"
-
-# ls
+alias c="dclean"
 alias l='ls -ltr'
 
 # tmux
@@ -11,7 +10,6 @@ alias t='tmux -u'
 alias tls='tmux ls'
 alias ta='tmux -u attach -t'
 alias tn='tmux -u new -n'
-
 
 # base directories
 alias dotfiles='pushd $DOTFILES'
@@ -46,6 +44,13 @@ alias dcu='docker-compose up --build'
 alias dcd='docker-compose down'
 alias dcps='docker-compose ps'
 alias dc='docker-compose'
+
+# NVR 
+if [ -n "${NVIM_LISTEN_ADDRESS+x}" ]; then
+  alias vih='nvr -o'
+  alias viv='nvr -O'
+  alias vit='nvr --remote-tab'
+fi
 
 # kubernetes
 alias k='kubectl'

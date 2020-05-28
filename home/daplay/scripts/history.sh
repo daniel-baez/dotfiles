@@ -1,5 +1,30 @@
 #!/bin/sh
 
+
+
+# This function returns all the aliases
+# contatenated like this: ":a:b:c:d"
+# this string should be appended to
+# env var HISTIGNORE in order to avoid
+# capturing aliases in history.
+#
+# This helps remove noise from the log
+function get_aliases_for_ignore() {
+  # loads every other file in this same directory
+  currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  result="ls:bg:fg:history:echo"
+
+  for ELEMENT in $(cat ${currentDir}/aliases.sh | grep alias | sed -E -e 's/alias //g' | sed -E -e 's/=.*$//g'); do
+    result+=":${ELEMENT}"
+  done
+
+  echo $result
+
+  unset file;
+  unset currentDir;
+}
+
+
 # BETTER HISTORY https://sanctum.geek.nz/arabesque/better-bash-history/
 
 # option `histappend` will append to .bash_history instead of overwriting what's there
@@ -18,7 +43,7 @@ export HISTSIZE=100000
 export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 
 # the following list of commands will be ignored
-export HISTIGNORE='ls:bg:fg:history:echo'
+export HISTIGNORE=$(get_aliases_for_ignore)
 
 # preprends date (%F) and time (%F) to each command
 export HISTTIMEFORMAT='%F %T '

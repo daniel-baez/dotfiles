@@ -11,7 +11,6 @@ function load_scripts() {
     exports
     history
     vim
-    workspace
 EOM
 
   unset file;
@@ -19,6 +18,9 @@ EOM
 }
 
 function extend_path() {
+  currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  export PATH="$PATH:$currentDir/bin"
+  unset currentDir;
 }
 
 # reloads ~/.bashrc
@@ -43,6 +45,25 @@ function dclean() {
   fi
 }
 
+# usage: 
+#   workspace [ dirname ]
+#
+# Without arguments `workspace` executes pushd for $HOME/workspace
+# if an argument is passed it will execute pushd for $HOME/workspace/$argument
+#
+function workspace() {
+  local dirname="$HOME/workspace/"
+
+  if [[ $# -eq 1 ]] ; then
+    dirname="$HOME/workspace/$1"
+  fi
+
+  if [ -d $dirname ] ; then
+    pushd $dirname;
+  else
+    echo "Directory: $dirname doesn't exists"
+  fi
+}
 
 load_scripts
 extend_path

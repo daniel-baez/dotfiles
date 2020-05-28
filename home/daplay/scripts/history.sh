@@ -1,8 +1,6 @@
 #!/bin/sh
 
-
-
-# This function returns all the aliases
+# Returns all the aliases
 # contatenated like this: ":a:b:c:d"
 # this string should be appended to
 # env var HISTIGNORE in order to avoid
@@ -18,10 +16,10 @@ function get_aliases_for_ignore() {
     result+=":${ELEMENT}"
   done
 
-  echo $result
-
   unset file;
   unset currentDir;
+
+  echo $result
 }
 
 
@@ -40,13 +38,13 @@ export HISTSIZE=100000
 # - ignorespace => avoids saving commands that start with an space
 # - ignoredups => avoids duplicates
 # export HISTCONTROL=ignoreboth
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTCONTROL=erasedups:ignorespace  # no duplicate entries
 
 # the following list of commands will be ignored
-export HISTIGNORE=$(get_aliases_for_ignore)
+export HISTIGNORE="$(get_aliases_for_ignore)"
 
 # preprends date (%F) and time (%F) to each command
-export HISTTIMEFORMAT='%F %T '
+# export HISTTIMEFORMAT='%F %T '
 
 # upon saving commands to $HOME/.bash_history
 # it will break multiple line commands into single line commnads

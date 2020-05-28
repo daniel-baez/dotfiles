@@ -3,6 +3,7 @@
 # ®
 alias e="echo"
 alias c="dclean"
+alias r="dreload"
 alias l='ls -ltr'
 
 # tmux
@@ -58,15 +59,3 @@ alias kdespod='kubectl describe pod'
 alias klspod='kubectl get pod'
 alias krmpod='kubectl delete pod'
 
-# Limpia la pantalla
-# si estamos usando tmux, 
-# tambien limpia el historial del panel
-function dclean() {
-  if [ -z ${TMUX_PANE+x} ]; 
-  then 
-    clear
-  else 
-    clear
-    tmux clear-history
-  fi
-}

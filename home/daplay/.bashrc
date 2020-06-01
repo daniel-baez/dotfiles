@@ -3,8 +3,9 @@
 function load_scripts() {
   while read file
   do
-    currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-    file=$currentDir/scripts/$file.sh
+    local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    local file=$currentDir/scripts/$file.sh
+
     [ -r "$file" ] && [ -f "$file" ] && source "$file";
   done <<EOM
     aliases
@@ -12,15 +13,11 @@ function load_scripts() {
     history
     vim
 EOM
-
-  unset file;
-  unset currentDir;
 }
 
 function extend_path() {
-  currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+  local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   export PATH="$PATH:$currentDir/bin"
-  unset currentDir;
 }
 
 # reloads ~/.bashrc

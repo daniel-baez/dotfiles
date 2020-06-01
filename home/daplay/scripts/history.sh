@@ -51,7 +51,7 @@ export HISTCONTROL=erasedups:ignorespace  # no duplicate entries
 export HISTIGNORE="$(get_aliases_for_ignore)"
 
 # preprends date (%F) and time (%F) to each command
-# export HISTTIMEFORMAT='%F %T '
+export HISTTIMEFORMAT='%F %T '
 
 # upon saving commands to $HOME/.bash_history
 # it will break multiple line commands into single line commnads
@@ -60,9 +60,10 @@ shopt -s cmdhist
 # by default, bash will save commands upon quitting your session
 # this means that, if you session crashes, you won't see a thing written :{
 # the following setting, makes bash save commands automatically
+# history -a
 if [ -z "$PROMPT_COMMAND" ]
 then
   export PROMPT_COMMAND="history -a"
 else
-  export PROMPT_COMMAND="$PROMPT_COMMAND;history -a"
+  export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 fi

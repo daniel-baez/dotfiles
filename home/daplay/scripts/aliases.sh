@@ -1,11 +1,12 @@
 #!/bin/sh
 
 # ®
-alias e="echo"
-alias h="history"
 alias c="dclean"
-alias r="dreload"
+alias e="echo"
+alias g="git"
+alias h="history"
 alias l='ls -ltr'
+alias r="dreload"
 
 # tmux
 alias t='tmux -u'

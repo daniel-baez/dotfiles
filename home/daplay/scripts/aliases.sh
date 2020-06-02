@@ -29,13 +29,14 @@ alias wip='dcommit WIP && gP' # TODO: remove this one or replace by a more usefu
 alias gawip='ga && dcommit WIP && gP' # TODO: remove this one or replace by a more useful program
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
 
-alias ga='git add --all .'
 alias gA='git add --all -n .'
+alias gP='git push'
+alias ga='git add --all .'
 alias gb='git checkout -b'
 alias gc='git checkout'
 alias gd='git diff'
+alias gm='git merge'
 alias gp='git pull'
-alias gP='git push'
 alias gs='git status'
 
 # git: branches

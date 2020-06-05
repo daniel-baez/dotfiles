@@ -10,9 +10,10 @@ alias r="dreload"
 
 # tmux
 alias t='tmux -u'
-alias tls='tmux ls'
 alias ta='tmux -u attach -t'
+alias tls='tmux ls'
 alias tn='tmux -u new -n'
+alias tt='tmuxinator'
 
 # base directories
 alias dotfiles='pushd $DOTFILES'
@@ -34,8 +35,11 @@ alias gP='git push'
 alias ga='git add --all .'
 alias gb='git checkout -b'
 alias gc='git checkout'
+alias gC='git commit'
 alias gd='git diff'
 alias gm='git merge'
+alias gmm='git merge master'
+alias gmd='git merge develop'
 alias gp='git pull'
 alias gs='git status'
 

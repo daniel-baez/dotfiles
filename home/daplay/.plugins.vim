@@ -88,7 +88,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'snoe/clj-refactor.nvim'
 
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 
 call plug#end()            " required
 

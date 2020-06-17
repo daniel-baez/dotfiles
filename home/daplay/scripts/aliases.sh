@@ -8,6 +8,9 @@ alias h="history"
 alias l='ls -ltr'
 alias r="dreload"
 
+# ruby
+alias be='bundler exec'
+
 # tmux
 alias t='tmux -u'
 alias ta='tmux -u attach -t'
@@ -38,8 +41,8 @@ alias gc='git checkout'
 alias gC='git commit'
 alias gd='git diff'
 alias gm='git merge'
-alias gmm='git merge master'
-alias gmd='git merge develop'
+alias gmm='git merge origin/master'
+alias gmd='git merge origin/develop'
 alias gp='git pull'
 alias gs='git status'
 

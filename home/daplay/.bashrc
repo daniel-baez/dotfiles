@@ -43,12 +43,13 @@ function dclean() {
 }
 
 # usage: 
-#   workspace [ dirname ]
+
+#   ws [ dirname ]
 #
 # Without arguments `workspace` executes pushd for $HOME/workspace
 # if an argument is passed it will execute pushd for $HOME/workspace/$argument
 #
-function workspace() {
+function ws() {
   local dirname="$HOME/workspace/"
 
   if [[ $# -eq 1 ]] ; then

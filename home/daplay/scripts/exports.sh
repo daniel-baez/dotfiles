@@ -7,3 +7,6 @@ export WORKSPACE=$HOME/workspace
 
 # runtimes
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en'
+
+# FZF
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'

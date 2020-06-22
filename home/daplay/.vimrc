@@ -81,7 +81,8 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 " let g:ctrlp_extensions = ['tag']
 
 " FZF
-nnoremap <C-p> :<C-u>Files<CR>
+nnoremap <C-p> :<C-u>GFiles<CR>
+nnoremap <C-k> :<C-u>Files<CR>
 nnoremap <C-g> :<C-u>Ag<CR>
 nnoremap <C-h> :<C-u>Commits<CR>
 

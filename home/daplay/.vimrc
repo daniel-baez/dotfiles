@@ -71,19 +71,19 @@ vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " CONTROL-P
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo,*/node_modules/*
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" let g:ctrlp_working_path_mode = 'rwa'
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'et'
-let g:ctrlp_extensions = ['tag']
+" set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo,*/node_modules/*
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
+" let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" " let g:ctrlp_working_path_mode = 'rwa'
+" let g:ctrlp_working_path_mode = 'ra'
+" let g:ctrlp_switch_buffer = 'et'
+" let g:ctrlp_extensions = ['tag']
 
-" Ack uses ag
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
-endif
+" FZF
+nnoremap <C-p> :<C-u>Files<CR>
+nnoremap <C-g> :<C-u>Ag<CR>
+nnoremap <C-h> :<C-u>Commits<CR>
 
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink

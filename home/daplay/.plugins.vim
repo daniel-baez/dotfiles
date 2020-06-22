@@ -15,6 +15,9 @@ Plug 'hashivim/vim-terraform'
 
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+" Plug 'ctrlpvim/ctrlp.vim' " Control P
+" Plug 'mileszs/ack.vim'
 
 " Javascript
 Plug 'ternjs/tern_for_vim'
@@ -35,10 +38,8 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'taku-o/vim-copypath'
-Plug 'ctrlpvim/ctrlp.vim' " Control P
 Plug 'jiangmiao/auto-pairs' " 
 Plug 'scrooloose/nerdtree' " NERDTree
-Plug 'mileszs/ack.vim'
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki' " personal management
 Plug 'kchmck/vim-coffee-script' " CoffeeScript

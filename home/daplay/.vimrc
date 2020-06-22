@@ -56,7 +56,6 @@ autocmd BufRead,BufNewFile build.boot,*.hl set ft=clojure
 "" au BufRead,BufNewFile *.hl setfiletype clojure
 au FileType crontab setlocal bkc=yes
 
-
 " esto necesita instalar `npm install -g prettier`
 autocmd FileType javascript set formatprg=prettier\ --stdin
 " autocmd BufWritePre *.js exe "normal! gggqG\<C-o>\<C-o>"

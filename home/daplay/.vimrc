@@ -85,6 +85,7 @@ nnoremap <C-p> :<C-u>GFiles<CR>
 nnoremap <C-k> :<C-u>Files<CR>
 nnoremap <C-g> :<C-u>Ag<CR>
 nnoremap <C-h> :<C-u>Commits<CR>
+nnoremap <C-j> :<C-u>Buffers<CR>
 
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink

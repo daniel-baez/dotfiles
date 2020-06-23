@@ -74,17 +74,17 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 " let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
 " let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
-" " let g:ctrlp_working_path_mode = 'rwa'
+" let g:ctrlp_working_path_mode = 'rwa'
 " let g:ctrlp_working_path_mode = 'ra'
 " let g:ctrlp_switch_buffer = 'et'
 " let g:ctrlp_extensions = ['tag']
 
 " FZF
-nnoremap <C-p> :<C-u>GFiles<CR>
-nnoremap <C-k> :<C-u>Files<CR>
-nnoremap <C-g> :<C-u>Ag<CR>
-nnoremap <C-h> :<C-u>Commits<CR>
-nnoremap <C-j> :<C-u>Buffers<CR>
+nnoremap <C-p><C-p> :<C-u>GFiles<CR>
+nnoremap <C-p><C-k> :<C-u>Files<CR>
+nnoremap <C-p><C-g> :<C-u>Ag<CR>
+nnoremap <C-p><C-h> :<C-u>Commits<CR>
+nnoremap <C-p><C-f> :<C-u>Buffers<CR>
 
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink

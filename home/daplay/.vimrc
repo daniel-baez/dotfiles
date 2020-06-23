@@ -86,6 +86,22 @@ nnoremap <C-p><C-g> :<C-u>Ag<CR>
 nnoremap <C-p><C-h> :<C-u>Commits<CR>
 nnoremap <C-p><C-f> :<C-u>Buffers<CR>
 
+" CTRL-A CTRL-Q to select all and build quickfix list
+
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
+
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink
 "" Vertical split and follow (create target wiki page if needed).

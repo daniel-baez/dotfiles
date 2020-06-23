@@ -81,6 +81,7 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 
 " FZF
 nnoremap <C-p><C-p> :<C-u>GFiles<CR>
+nnoremap <C-p>/ :<C-u>GFiles?<CR>
 nnoremap <C-p><C-k> :<C-u>Files<CR>
 nnoremap <C-p><C-g> :<C-u>Ag<CR>
 nnoremap <C-p><C-h> :<C-u>Commits<CR>

@@ -16,6 +16,8 @@ Plug 'hashivim/vim-terraform'
 " fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'dense-analysis/ale'
+
 " Plug 'ctrlpvim/ctrlp.vim' " Control P
 " Plug 'mileszs/ack.vim'
 

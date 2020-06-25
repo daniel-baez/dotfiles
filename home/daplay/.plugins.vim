@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 
 " Plug 'ctrlpvim/ctrlp.vim' " Control P
-" Plug 'mileszs/ack.vim'
+Plug 'mileszs/ack.vim'
 
 " Projectionist
 Plug 'tpope/vim-projectionist'

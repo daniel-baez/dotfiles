@@ -12,6 +12,9 @@ let g:jsonnet_fmt_on_save = 0
 
 let g:UltiSnipsUsePythonVersion = 3
 
+"" ruby
+let g:ale_linters = {'ruby': ['rubocop']}
+let g:ale_ruby_rubocop_executable = 'bundle'
 
 "" configuraciones varias
 " set regexpengine=1

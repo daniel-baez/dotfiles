@@ -14,15 +14,18 @@ call plug#begin('~/.vim/bundle')
 Plug 'hashivim/vim-terraform'
 
 " fzf
+Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'dense-analysis/ale'
 
 " Plug 'ctrlpvim/ctrlp.vim' " Control P
-Plug 'mileszs/ack.vim'
+Plug 'dense-analysis/ale'
 
 " Projectionist
 Plug 'tpope/vim-projectionist'
+
+Plug 'krisajenkins/vim-projectlocal'
+Plug 'mhinz/vim-startify'
 
 
 " Javascript
@@ -61,9 +64,9 @@ Plug 'tmhedberg/matchit'
 
 " Provides Snippets (templates based on keywords)
 " Track the engine.  
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
-"Plug 'honza/vim-snippets'
+Plug 'honza/vim-snippets'
 
 Plug 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
 Plug 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux

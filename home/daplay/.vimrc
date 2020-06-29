@@ -4,13 +4,13 @@
 filetype plugin indent on
 filetype on
 
+set exrc " esta opcion permite tener un .vimrc a nivel de cada directorio (por proyecto)
+
 "" Don't let Vim's "Found a swap file" message block input
 set shortmess=A
 
 " Jsonnet. Call Jsonnet by means of :Jsonnet, use 1 to enable on save filtering
 let g:jsonnet_fmt_on_save = 0
-
-let g:UltiSnipsUsePythonVersion = 3
 
 "" ruby
 let g:ale_linters = {'ruby': ['rubocop']}
@@ -185,7 +185,7 @@ let g:rbpt_colorpairs = [
 "       \ } 
 
 " COC
-" let g:airline_section_error = '%{airline#util#wrap(airline#extensions#coc#get_error(),0)}'
+" let g:airline_section_error = '%{airline#til#wrap(airline#extensions#coc#get_error(),0)}'
 " let g:airline_section_warning = '%{airline#util#wrap(airline#extensions#coc#get_warning(),0)}'
 
 " Remap keys for gotos
@@ -367,10 +367,18 @@ set guifontwide=NSimsun:h12
 
 "" Utilsnips
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsUsePythonVersion = 3
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+nnoremap ,sl :call UltiSnips#ListSnippets()<CR>
 
+
+
+
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
 
 "" Search with C-d C-f
 "" In selection mode: \a searches using Ack
@@ -378,6 +386,8 @@ let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 "" vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>
 vnoremap <C-D><C-F> y:Ack <C-r>=fnameescape(@")<CR><CR>
 "" noremap   :Ack 
+" Ack uses ag " FZF
+"
 
 
 """ INDENT ON SAVE.

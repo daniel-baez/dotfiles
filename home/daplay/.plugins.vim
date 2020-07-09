@@ -72,6 +72,7 @@ Plug 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
 Plug 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux
 
 Plug 'tpope/vim-jdaddy' " json
+Plug 'chrisbra/NrrwRgn' " narrow region :NR
 
 " context info: git and other stuff
 " Plugin 'vim-airline/vim-airline'

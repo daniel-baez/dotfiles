@@ -15,10 +15,8 @@ Plug 'hashivim/vim-terraform'
 
 " fzf
 Plug 'mileszs/ack.vim'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 
-" Plug 'ctrlpvim/ctrlp.vim' " Control P
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 
 " Projectionist
@@ -26,6 +24,8 @@ Plug 'tpope/vim-projectionist'
 
 Plug 'krisajenkins/vim-projectlocal'
 Plug 'mhinz/vim-startify'
+Plug 'tbabej/taskwiki'
+
 
 
 " Javascript
@@ -51,7 +51,7 @@ Plug 'jiangmiao/auto-pairs' "
 Plug 'scrooloose/nerdtree' " NERDTree
 Plug 'majutsushi/tagbar'
 Plug 'vimwiki/vimwiki' " personal management
-Plug 'kchmck/vim-coffee-script' " CoffeeScript
+" Plug 'kchmck/vim-coffee-script' " CoffeeScript
 Plug 'mxw/vim-jsx'
 " Plugin 'tfnico/vim-gradle' " Gradle
 Plug 'gisphm/vim-gradle' " Gradle2

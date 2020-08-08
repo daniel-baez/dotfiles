@@ -1,5 +1,10 @@
 " source $HOME/.plugins.vim
 
+if exists("g:loaded_dotfiles") || v:version < 700 || &compatible
+  finish
+endif
+let g:loaded_dotfiles = 1
+
 ""programming indent
 filetype plugin indent on
 filetype on
@@ -75,36 +80,19 @@ inoremap <silent> <C-S>         <C-O>:update<CR>
 " CONTROL-P
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo,*/node_modules/*
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
-let g:ctrlp_root_markers = ['run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
+let g:ctrlp_root_markers = ['git']
+" let g:ctrlp_root_markers = [[]'run', 'pom.xml', 'projectConfig.gradle', 'build.gradle', 'package.json', 'build.boot', 'project.clj']
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'
 let g:ctrlp_extensions = ['tag']
 
-" FZF
-" "nnoremap <C-p><C-p> :<C-u>GFiles<CR>
-" "nnoremap <C-p>/ :<C-u>GFiles?<CR>
-" "nnoremap <C-p><C-k> :<C-u>Files<CR>
-" "nnoremap <C-p><C-g> :<C-u>Ag<CR>
-" "nnoremap <C-p><C-h> :<C-u>Commits<CR>
-" "nnoremap <C-p><C-f> :<C-u>Buffers<CR>
-
-" CTRL-A CTRL-Q to select all and build quickfix list
-
 function! s:build_quickfix_list(lines)
   call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
   copen
   cc
 endfunction
-
-let g:fzf_action = {
-  \ 'ctrl-q': function('s:build_quickfix_list'),
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-x': 'split',
-  \ 'ctrl-v': 'vsplit' }
-
-let $FZF_DEFAULT_OPTS = '--bind ctrl-a:select-all'
 
 "" Split and follow (create target wiki page if needed).  
 nmap <Leader>we <Plug>VimwikiSplitLink
@@ -373,7 +361,13 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsEditSplit="vertical"
 nnoremap ,sl :call UltiSnips#ListSnippets()<CR>
 
-
+let mapleader=','
+if exists(":Tabularize")
+nmap <Leader>a= :Tabularize /=<CR>
+vmap <Leader>a= :Tabularize /=<CR>
+nmap <Leader>a: :Tabularize /:\zs<CR>
+vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
 
 
 if executable('ag')

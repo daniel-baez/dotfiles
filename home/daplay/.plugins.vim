@@ -13,6 +13,9 @@ call plug#begin('~/.vim/bundle')
 " Google Cloud Platform
 Plug 'hashivim/vim-terraform'
 
+" Tabular
+Plug 'godlygeek/tabular'
+
 " fzf
 Plug 'mileszs/ack.vim'
 
@@ -24,7 +27,6 @@ Plug 'tpope/vim-projectionist'
 
 Plug 'krisajenkins/vim-projectlocal'
 Plug 'mhinz/vim-startify'
-Plug 'tbabej/taskwiki'
 
 
 
@@ -64,9 +66,12 @@ Plug 'tmhedberg/matchit'
 
 " Provides Snippets (templates based on keywords)
 " Track the engine.  
-Plug 'SirVer/ultisnips'
 " Snippets are separated from the engine. Add this if you want them:
+
 Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+
+Plug 'ludovicchabant/vim-gutentags'
 
 Plug 'tmux-plugins/vim-tmux' " colors and syntax help for tmux.conf
 Plug 'tmux-plugins/vim-tmux-focus-events' " makes clipboard work inside tmux

@@ -28,6 +28,7 @@ set autoread
 set autowrite
 set nopaste " it's a terrible idea to leave this on see: 'help pastetoggle'
 
+
 set clipboard=unnamed " http://stackoverflow.com/questions/39645253/clipboard-failure-in-tmux-vim-after-upgrading-to-macos-sierra
 
 let g:terraform_align = 1
@@ -76,6 +77,20 @@ au BufRead,BufNewFile *.wiki setlocal textwidth=80
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
+
+" SuperTab like snippets behavior.
+" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
+"imap <expr><TAB>
+" \ pumvisible() ? "\<C-n>" :
+" \ neosnippet#expandable_or_jumpable() ?
+" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For conceal markers.
+if has('conceal')
+  set conceallevel=2 concealcursor=niv
+endif
 
 " CONTROL-P
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*/target/*,*.pyc,*.pyo,*/node_modules/*
@@ -320,6 +335,12 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! DclojurescriptPiggieback :Piggieback (cider.piggieback/cljs-repl) 
 
+fun! DReload()
+  unlet g:loaded_dotfiles
+  source ~/.vimrc 
+  echo 'Configuration reloaded :)'
+endfun
+
 command! DvimrcReload :source ~/.vimrc | :echo 'Configuration reloaded :)'
 command! DtmuxconfigOpen :e ~/.tmux.conf
 command! DtmuxconfigTabOpen tabnew | :e ~/.tmux.conf
@@ -355,10 +376,10 @@ set guifontwide=NSimsun:h12
 
 "" Utilsnips
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-let g:UltiSnipsUsePythonVersion = 3
-let g:UltiSnipsExpandTrigger="<tab>"
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
+" let g:UltiSnipsUsePythonVersion = 3
+" let g:UltiSnipsExpandTrigger="<tab>"
+" " If you want :UltiSnipsEdit to split your window.
+" let g:UltiSnipsEditSplit="vertical"
 nnoremap ,sl :call UltiSnips#ListSnippets()<CR>
 
 let mapleader=','
@@ -448,3 +469,10 @@ nnoremap td  :tabclose<CR>
 nnoremap th :tabnext<CR>
 nnoremap tl :tabprev<CR>
 nnoremap tn :tabnew<CR>
+
+" PHP
+let g:phpfmt_standard = 'Zend'
+let g:phpfmt_autosave = 0
+let g:phpfmt_options = '--indent_with_space=2'
+
+ab nil null

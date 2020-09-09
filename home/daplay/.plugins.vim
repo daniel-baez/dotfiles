@@ -12,6 +12,7 @@ call plug#begin('~/.vim/bundle')
 
 " Google Cloud Platform
 Plug 'hashivim/vim-terraform'
+Plug 'junegunn/vim-easy-align'
 
 " Tabular
 Plug 'godlygeek/tabular'
@@ -21,14 +22,16 @@ Plug 'mileszs/ack.vim'
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
+Plug 'beanworks/vim-phpfmt'
 
 " Projectionist
 Plug 'tpope/vim-projectionist'
 
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+
 Plug 'krisajenkins/vim-projectlocal'
 Plug 'mhinz/vim-startify'
-
-
 
 " Javascript
 Plug 'ternjs/tern_for_vim'
@@ -105,6 +108,25 @@ Plug 'kien/rainbow_parentheses.vim'
 Plug 'snoe/clj-refactor.nvim'
 
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+
+""""""""""if has('nvim')
+""""""""""  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+""""""""""else
+""""""""""  Plug 'Shougo/deoplete.nvim'
+""""""""""  Plug 'roxma/nvim-yarp'
+""""""""""  Plug 'roxma/vim-hug-neovim-rpc'
+""""""""""endif
+""""""""""let g:deoplete#enable_at_startup = 1
+""""""""""
+""""""""""Plug 'Shougo/neosnippet.vim'
+""""""""""Plug 'Shougo/neosnippet-snippets'
+
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 call plug#end()            " required
 

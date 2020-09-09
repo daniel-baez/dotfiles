@@ -21,6 +21,9 @@ let g:jsonnet_fmt_on_save = 0
 let g:ale_linters = {'ruby': ['rubocop']}
 let g:ale_ruby_rubocop_executable = 'bundle'
 
+autocmd FileType ruby let b:dispatch = 'rtest %'
+autocmd FileType ruby nnoremap <buffer> ,t :Dispatch rtest %<CR>
+
 "" configuraciones varias
 " set regexpengine=1
 syntax enable
@@ -77,15 +80,6 @@ au BufRead,BufNewFile *.wiki setlocal textwidth=80
 noremap <silent> <C-S>          :update<CR>
 vnoremap <silent> <C-S>         <C-C>:update<CR>
 inoremap <silent> <C-S>         <C-O>:update<CR>
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 " For conceal markers.
 if has('conceal')
@@ -376,10 +370,10 @@ set guifontwide=NSimsun:h12
 
 "" Utilsnips
 "" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
-" let g:UltiSnipsUsePythonVersion = 3
-" let g:UltiSnipsExpandTrigger="<tab>"
-" " If you want :UltiSnipsEdit to split your window.
-" let g:UltiSnipsEditSplit="vertical"
+"let g:UltiSnipsUsePythonVersion = 3
+let g:UltiSnipsExpandTrigger="<tab>"
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
 nnoremap ,sl :call UltiSnips#ListSnippets()<CR>
 
 let mapleader=','

@@ -71,8 +71,8 @@ Plug 'tmhedberg/matchit'
 " Track the engine.  
 " Snippets are separated from the engine. Add this if you want them:
 
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+""Plug 'honza/vim-snippets'
+"Plug 'SirVer/ultisnips'
 
 Plug 'ludovicchabant/vim-gutentags'
 
@@ -107,20 +107,17 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'snoe/clj-refactor.nvim'
 
+" Rails & Ruby
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rails'
+Plug 'vim-ruby/vim-ruby'
+
+
+" Code query
+Plug 'Shougo/unite.vim'
+Plug 'devjoe/vim-codequery'
+
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-
-""""""""""if has('nvim')
-""""""""""  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-""""""""""else
-""""""""""  Plug 'Shougo/deoplete.nvim'
-""""""""""  Plug 'roxma/nvim-yarp'
-""""""""""  Plug 'roxma/vim-hug-neovim-rpc'
-""""""""""endif
-""""""""""let g:deoplete#enable_at_startup = 1
-""""""""""
-""""""""""Plug 'Shougo/neosnippet.vim'
-""""""""""Plug 'Shougo/neosnippet-snippets'
-
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)

@@ -469,4 +469,3 @@ let g:phpfmt_standard = 'Zend'
 let g:phpfmt_autosave = 0
 let g:phpfmt_options = '--indent_with_space=2'
 
-ab nil null

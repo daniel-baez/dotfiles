@@ -12,17 +12,17 @@ function get_aliases_for_ignore() {
   currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
   result=""
 
-  # commands starting with ls,echo,bg,fg,history won't be saved
+  # commands starting with ls,bg,fg,history won't be saved
   # in history
-  for ELEMENT in $(echo "ls:echo:bg:fg:history" | tr : '\n'); do
+  for ELEMENT in $(echo "ls:bg:fg:history" | tr : '\n'); do
     result+=":${ELEMENT}*"
   done
 
 
   # aliases added by these scripts won't show in history
-  for ELEMENT in $(cat ${currentDir}/aliases.sh | grep alias | sed -E -e 's/alias //g' | sed -E -e 's/=.*$//g'); do
-    result+=":${ELEMENT}"
-  done
+  # for ELEMENT in $(cat ${currentDir}/aliases.sh | grep alias | sed -E -e 's/alias //g' | sed -E -e 's/=.*$//g'); do
+  #   result+=":${ELEMENT}"
+  # done
 
   unset file;
   unset currentDir;
@@ -39,8 +39,8 @@ shopt -s histappend
 
 # by default, the .bash_history file will hold up to 500 commands
 # lets get that way longer!
-export HISTFILESIZE=1000000
-export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
+export HISTSIZE=1000000000
 
 # `ignoreboth` is a shortcut to specify options:
 # - ignorespace => avoids saving commands that start with an space

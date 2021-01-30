@@ -71,8 +71,8 @@ Plug 'tmhedberg/matchit'
 " Track the engine.  
 " Snippets are separated from the engine. Add this if you want them:
 
-Plug 'honza/vim-snippets'
-Plug 'SirVer/ultisnips'
+" Plug 'honza/vim-snippets'
+" Plug 'SirVer/ultisnips'
 
 Plug 'ludovicchabant/vim-gutentags'
 

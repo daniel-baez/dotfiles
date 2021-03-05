@@ -329,13 +329,7 @@ au FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
 " command! DclojurescriptPiggieback :Piggieback (adzerk.boot-cljs-repl/repl-env)
 command! DclojurescriptPiggieback :Piggieback (cider.piggieback/cljs-repl) 
 
-fun! DReload()
-  unlet g:loaded_dotfiles
-  source ~/.vimrc 
-  echo 'Configuration reloaded :)'
-endfun
-
-command! DvimrcReload :source ~/.vimrc | :echo 'Configuration reloaded :)'
+command! DvimrcReload :source $MYVIMRC | :echo 'Configuration reloaded :)'
 command! DtmuxconfigOpen :e ~/.tmux.conf
 command! DtmuxconfigTabOpen tabnew | :e ~/.tmux.conf
 command! DbashrcOpen :e ~/.bashrc
@@ -350,8 +344,8 @@ nmap ,dR :DvimrcReload<CR>
 nmap ,dt :NERDTreeToggle<CR>
 nmap ,dT :NERDTreeFind<CR>
 " nmap ,dov :DvimrcOpen<CR>
-map ,dov :silent! :split ~/.vimrc<CR>
-map ,doV :silent! :tabedit :e ~/.vimrc<CR>
+map ,dov :silent! :split $MYVIMRC<CR>
+map ,doV :silent! :tabedit :e $MYVIMRC<CR>
 nmap ,dot :DtmuxconfigOpen<CR>
 nmap ,doT :DtmuxconfigTabOpen<CR>
 nmap ,dobb :DbashrcOpen<CR>

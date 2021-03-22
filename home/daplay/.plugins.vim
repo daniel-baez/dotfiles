@@ -55,7 +55,7 @@ Plug 'taku-o/vim-copypath'
 Plug 'jiangmiao/auto-pairs' " 
 Plug 'scrooloose/nerdtree' " NERDTree
 Plug 'majutsushi/tagbar'
-Plug 'vimwiki/vimwiki' " personal management
+" Plug 'vimwiki/vimwiki' " personal management
 " Plug 'kchmck/vim-coffee-script' " CoffeeScript
 Plug 'mxw/vim-jsx'
 " Plugin 'tfnico/vim-gradle' " Gradle

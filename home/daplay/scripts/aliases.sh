@@ -32,6 +32,7 @@ alias gradle='./gradlew'
 alias wip='dcommit WIP && gP' # TODO: remove this one or replace by a more useful program
 alias gawip='ga && dcommit WIP && gP'
 alias gapr='ga && dcommit PR Comments && gP'
+alias gatest='ga && dcommit Fixing Tests && gP'
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
 
 alias gA='git add --all -n .'

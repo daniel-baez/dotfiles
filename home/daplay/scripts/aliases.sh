@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # ®
+alias b="bazel"
 alias c="dclean"
 alias e="echo"
 alias g="git"

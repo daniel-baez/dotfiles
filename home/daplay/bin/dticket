@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# Usage: `dticket`
+# 
+# Prints current ticket name, taken from the branch name in the current repository
+# For interactive shells, it also copies de ticket name to the clipboard
+
+branch=$(git branch \
+	| grep '*' \
+	| sed -Ee 's/^[* ]+//' \
+	| sed -E -e 's/^ \+//' \
+	| sed -E -e 's/ \+$//')
+
+ticket=$(echo $branch \ | grep -Eo '[A-Z]{2,5}-[0-9]+')
+
+if [[ -z "$branch" ]];then
+  exit 0
+fi
+
+if [[ -z "$ticket" ]];then
+  exit 0
+fi
+
+if [[ -z "$PS1" ]];then
+  echo $ticket
+  echo $ticket | pbcopy
+else
+  echo $ticket
+fi
+

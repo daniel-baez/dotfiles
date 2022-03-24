@@ -8,21 +8,17 @@
 # 
 # <TICKET_NUMBER> is taken from the branch name
 
-branch=$(git branch \
-	| grep '*' \
-	| sed -Ee 's/^[* ]+//' \
-	| sed -E -e 's/^ \+//' \
-	| sed -E -e 's/ \+$//')
-
-ticket=$(echo $branch \
-	| cut -d_ -f1 \
-	| sed -E -e 's/^ \+//' \
-	| sed -E -e 's/ \+$//')
-
-
+readonly ticket=$(dticket)
 readonly message="$@"
+
+if [[ -z "$ticket" ]];then
+  # ticket is empty, maybe a quick branch?
+  commit="git commit -m\"$message\""
+else
+  commit="git commit -m\"$ticket: $message\""
+fi
 
 set -ex
 
-git commit -m"$ticket: $message"
+eval $commit
 git push origin

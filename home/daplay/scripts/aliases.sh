@@ -36,6 +36,7 @@ alias gawip='ga && dcommit WIP && gP'
 alias gapr='ga && dcommit PR Comments && gP'
 alias gatest='ga && dcommit Fixing Tests && gP'
 alias dmerge='git pull && git merge origin/master' # TODO: remove this one or replace by a more useful program
+alias dcc="git log --pretty=format:'%H' -1 | pbcopy" # TODO: remove this one or replace by a more useful program
 
 alias gA='git add --all -n .'
 alias gP='git push'

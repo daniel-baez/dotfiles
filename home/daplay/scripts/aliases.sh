@@ -77,3 +77,12 @@ alias kdespod='kubectl describe pod'
 alias klspod='kubectl get pod'
 alias krmpod='kubectl delete pod'
 
+# find
+function ff() {
+  find . -type f -name $1 ${@:2}
+}
+
+function fd() {
+  find . -type d -name $1 ${@:2}
+}
+

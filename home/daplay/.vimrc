@@ -388,6 +388,8 @@ endif
 "" In selection mode: C-d C-f searches using Ack
 "" vnoremap <Leader>a y:Ack <C-r>=fnameescape(@")<CR><CR>
 vnoremap <C-D><C-F> y:Ack <C-r>=fnameescape(@")<CR><CR>
+"" In selection mode: // searches current highligted text with /
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 "" noremap   :Ack 
 " Ack uses ag " FZF
 "
@@ -462,4 +464,15 @@ nnoremap tn :tabnew<CR>
 let g:phpfmt_standard = 'Zend'
 let g:phpfmt_autosave = 0
 let g:phpfmt_options = '--indent_with_space=2'
+
+" Golang!
+let g:go_def_mode='gopls'
+let g:go_fmt_command = "goimports"  " What to run on save.
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_types = 1
+let g:go_info_mode='gopls'
 

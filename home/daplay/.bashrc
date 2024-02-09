@@ -1,9 +1,11 @@
 #!/bin/sh
 
+    local currentDir=${0:a:h}
 function load_scripts() {
   while read file
   do
-    local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    # local currentDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+    # local currentDir=${0:a:h}
     local file=$currentDir/scripts/$file.sh
 
     [ -r "$file" ] && [ -f "$file" ] && source "$file";

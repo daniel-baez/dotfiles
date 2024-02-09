@@ -1,7 +1,6 @@
 #!/bin/sh
 
 # ®
-alias edit_alias="nvim `find ~/workspace/dotfiles/ -name alias*`"
 alias a="alias"
 alias b="bazel"
 alias c="dclean"

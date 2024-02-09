@@ -35,7 +35,8 @@ function get_aliases_for_ignore() {
 
 # option `histappend` will append to .bash_history instead of overwriting what's there
 # this happens, by default, upon closing your session
-shopt -s histappend
+# shopt -s histappend # this one is for bash 
+setopt INC_APPEND_HISTORY
 
 # by default, the .bash_history file will hold up to 500 commands
 # lets get that way longer!
@@ -55,7 +56,7 @@ export HISTTIMEFORMAT='%F %T '
 
 # upon saving commands to $HOME/.bash_history
 # it will break multiple line commands into single line commnads
-shopt -s cmdhist
+# shopt -s cmdhist
 
 # by default, bash will save commands upon quitting your session
 # this means that, if you session crashes, you won't see a thing written :{
@@ -67,3 +68,6 @@ then
 else
   export PROMPT_COMMAND="history -a;$PROMPT_COMMAND"
 fi
+
+bindkey -v
+bindkey '^R' history-incremental-search-backward

@@ -584,7 +584,7 @@ dump."
      ((string= key-sequence "N") (insert "Ñ"))
      (t (insert key-sequence)))))
 
-(defun my-insert-accented-character ()
+(defun my-spanish-insert-accented-characters ()
   (interactive)
   (let ((key-sequence (read-key-sequence "Press the character to accent: ")))
     (cond
@@ -601,8 +601,26 @@ dump."
      ;; Add more cases if needed
      (t (message "Unknown accent combination for %s" key-sequence)))))
 
+(defun my-german-insert-accented-characters ()
+  (interactive)
+  (let ((key-sequence (read-key-sequence "Press the character to accent: ")))
+    (cond
+     ((string= key-sequence "a") (insert "ä"))
+     ((string= key-sequence "e") (insert "ë"))
+     ((string= key-sequence "i") (insert "ï"))
+     ((string= key-sequence "o") (insert "ö"))
+     ((string= key-sequence "u") (insert "ü"))
+     ((string= key-sequence "A") (insert "Ä"))
+     ((string= key-sequence "E") (insert "Ë"))
+     ((string= key-sequence "I") (insert "Ï"))
+     ((string= key-sequence "O") (insert "Ö"))
+     ((string= key-sequence "U") (insert "Ü"))
+     ;; Add more cases if needed
+     (t (message "Unknown accent combination for %s" key-sequence)))))
+
 (defun my-spanish-accents-install ()
-  (global-set-key (kbd "M-e") 'my-insert-accented-character)
+  (global-set-key (kbd "M-u") 'my-german-insert-accented-characters)
+  (global-set-key (kbd "M-e") 'my-spanish-insert-accented-characters)
   (global-set-key (kbd "M-n") 'my-insert-n-tilde)
   (global-set-key (kbd "M-?") 'my-insert-inverted-question-mark))
 

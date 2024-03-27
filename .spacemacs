@@ -71,7 +71,7 @@ This function should only modify configuration layer settings."
    ;; `dotspacemacs/user-config'. To use a local version of a package, use the
    ;; `:location' property: '(your-package :location "~/path/to/your-package/")
    ;; Also include the dependencies as they will not be resolved automatically.
-   dotspacemacs-additional-packages '()
+   dotspacemacs-additional-packages '(direnv)
 
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -601,6 +601,11 @@ dump."
      ;; Add more cases if needed
      (t (message "Unknown accent combination for %s" key-sequence)))))
 
+(defun my-spanish-accents-install ()
+  (global-set-key (kbd "M-e") 'my-insert-accented-character)
+  (global-set-key (kbd "M-n") 'my-insert-n-tilde)
+  (global-set-key (kbd "M-?") 'my-insert-inverted-question-mark))
+
 (defun my-ensure-directory-exists (path)
   "Ensure that a directory exists at PATH. If the directory does not exist, create it."
   (unless (file-exists-p path)
@@ -612,13 +617,12 @@ dump."
   (setq jiralib-url "https://k2labs.atlassian.net"))
 
 (defun my-yasnippet-config (path)
-  "Configures jira config"
+  "Configures yasnipet"
   ;; Ensure the custom snippets directory exists
   (ensure-directory-exists "~/.emacs.d/private/snippets")
 
   (with-eval-after-load 'yasnippet
     (yas-load-directory "~/.emacs.d/private/snippets")))
-
 
 (defun dotspacemacs/user-config ()
   "Configuration for user code:
@@ -627,15 +631,23 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
 
-  (global-set-key (kbd "M-e") 'my-insert-accented-character)
-  (global-set-key (kbd "M-n") 'my-insert-n-tilde)
-  (global-set-key (kbd "M-?") 'my-insert-inverted-question-mark)
+  (direnv-mode)
+
+  (setq inf-ruby-console-environment "development")
+
+  ;; Customize the command to start the Rails console
+  (eval-after-load 'inf-ruby
+    '(add-to-list 'inf-ruby-console-patterns-alist
+                  '("default" . "DISABLE_SPRING=true RAILS_ENV=development bundle exec rails console")))
+
+  (my-spanish-accents-install)
+  (my-yasnippet-config)
 
   (add-hook 'find-file-hook
             (lambda ()
-              (global-set-key (kbd "M-n") 'my-insert-n-tilde)
-              (global-set-key (kbd "M-e") 'my-insert-accented-character))))
-
+              ;; (global-set-key (kbd "M-n") 'my-insert-n-tilde)
+              ;; (global-set-key (kbd "M-e") 'my-insert-accented-character)
+              )))
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
@@ -650,7 +662,7 @@ This function is called at the very end of Spacemacs initialization."
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(auto-yasnippet helm-c-yasnippet helm-company yasnippet-snippets sql-indent sqlup-mode bundler chruby enh-ruby-mode minitest rake rbenv robe inf-ruby rspec-mode rubocop rubocopfmt ruby-hash-syntax ruby-refactor ruby-test-mode ruby-tools rvm seeing-is-believing yaml-mode gh-md git-link git-messenger git-modes gitignore-templates helm-git-grep helm-ls-git json-mode json-navigator hierarchy json-reformat json-snatcher magit-section markdown-toc smeargle transient add-node-modules-path company counsel-gtags counsel swiper ivy dap-mode lsp-docker lsp-treemacs bui yaml lsp-mode markdown-mode ggtags impatient-mode import-js grizzl js-doc js2-refactor yasnippet multiple-cursors livid-mode nodejs-repl npm-mode prettier-js skewer-mode js2-mode simple-httpd tern web-beautify evil-org gnuplot helm-org-rifle htmlize org org-cliplink org-contrib org-download org-mime org-pomodoro alert log4e gntp org-present org-projectile org-project-capture org-category-capture org-rich-yank ace-jump-helm-line ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol centered-cursor-mode clean-aindent-mode column-enforce-mode define-word devdocs dired-quick-sort drag-stuff dumb-jump editorconfig elisp-def elisp-slime-nav emr clang-format list-utils eval-sexp-fu evil-anzu anzu evil-args evil-cleverparens paredit evil-collection annalist evil-easymotion evil-escape evil-exchange evil-goggles evil-iedit-state iedit evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-surround evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar expand-region eyebrowse fancy-battery flx-ido flx flycheck-elsa flycheck-package package-lint flycheck golden-ratio google-translate helm-ag helm-comint helm-descbinds helm-make helm-mode-manager helm-org helm-projectile helm-purpose helm-swoop helm-themes helm-xref helm wfnames helm-core hide-comnt highlight-indentation highlight-numbers parent-mode highlight-parentheses hl-todo compat hungry-delete indent-guide info+ inspector link-hint lorem-ipsum macrostep multi-line shut-up nameless open-junk-file org-superstar overseer f pkg-info epl paradox spinner password-generator popup popwin quickrun rainbow-delimiters request restart-emacs smartparens space-doc spaceline powerline spacemacs-purpose-popwin spacemacs-whitespace-cleanup string-edit-at-point string-inflection symbol-overlay symon term-cursor toc-org treemacs-evil treemacs-icons-dired treemacs-persp persp-mode treemacs-projectile treemacs projectile cfrs ht pfuture ace-window avy posframe s undo-tree queue uuidgen vi-tilde-fringe vim-powerline volatile-highlights window-purpose imenu-list winum dash writeroom-mode visual-fill-column ws-butler async bind-map diminish dotenv-mode evil-evilified-state holy-mode hybrid-mode evil goto-chg hydra lv pcre2el use-package bind-key which-key)))
+   '(cider-eval-sexp-fu clojure-snippets company-web web-completion-data csv-mode direnv emmet-mode cider sesman parseedn clojure-mode parseclj helm-css-scss pug-mode sass-mode haml-mode scss-mode slim-mode tagedit web-mode auto-yasnippet helm-c-yasnippet helm-company yasnippet-snippets sql-indent sqlup-mode bundler chruby enh-ruby-mode minitest rake rbenv robe inf-ruby rspec-mode rubocop rubocopfmt ruby-hash-syntax ruby-refactor ruby-test-mode ruby-tools rvm seeing-is-believing yaml-mode gh-md git-link git-messenger git-modes gitignore-templates helm-git-grep helm-ls-git json-mode json-navigator hierarchy json-reformat json-snatcher magit-section markdown-toc smeargle transient add-node-modules-path company counsel-gtags counsel swiper ivy dap-mode lsp-docker lsp-treemacs bui yaml lsp-mode markdown-mode ggtags impatient-mode import-js grizzl js-doc js2-refactor yasnippet multiple-cursors livid-mode nodejs-repl npm-mode prettier-js skewer-mode js2-mode simple-httpd tern web-beautify evil-org gnuplot helm-org-rifle htmlize org org-cliplink org-contrib org-download org-mime org-pomodoro alert log4e gntp org-present org-projectile org-project-capture org-category-capture org-rich-yank ace-jump-helm-line ace-link aggressive-indent all-the-icons auto-compile auto-highlight-symbol centered-cursor-mode clean-aindent-mode column-enforce-mode define-word devdocs dired-quick-sort drag-stuff dumb-jump editorconfig elisp-def elisp-slime-nav emr clang-format list-utils eval-sexp-fu evil-anzu anzu evil-args evil-cleverparens paredit evil-collection annalist evil-easymotion evil-escape evil-exchange evil-goggles evil-iedit-state iedit evil-indent-plus evil-lion evil-lisp-state evil-matchit evil-mc evil-nerd-commenter evil-numbers evil-surround evil-textobj-line evil-tutor evil-unimpaired evil-visual-mark-mode evil-visualstar expand-region eyebrowse fancy-battery flx-ido flx flycheck-elsa flycheck-package package-lint flycheck golden-ratio google-translate helm-ag helm-comint helm-descbinds helm-make helm-mode-manager helm-org helm-projectile helm-purpose helm-swoop helm-themes helm-xref helm wfnames helm-core hide-comnt highlight-indentation highlight-numbers parent-mode highlight-parentheses hl-todo compat hungry-delete indent-guide info+ inspector link-hint lorem-ipsum macrostep multi-line shut-up nameless open-junk-file org-superstar overseer f pkg-info epl paradox spinner password-generator popup popwin quickrun rainbow-delimiters request restart-emacs smartparens space-doc spaceline powerline spacemacs-purpose-popwin spacemacs-whitespace-cleanup string-edit-at-point string-inflection symbol-overlay symon term-cursor toc-org treemacs-evil treemacs-icons-dired treemacs-persp persp-mode treemacs-projectile treemacs projectile cfrs ht pfuture ace-window avy posframe s undo-tree queue uuidgen vi-tilde-fringe vim-powerline volatile-highlights window-purpose imenu-list winum dash writeroom-mode visual-fill-column ws-butler async bind-map diminish dotenv-mode evil-evilified-state holy-mode hybrid-mode evil goto-chg hydra lv pcre2el use-package bind-key which-key)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

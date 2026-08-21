@@ -1,1 +1,0 @@
-ls $DOTFILES/environment/bin | pr -1 -t

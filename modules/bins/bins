@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+ls "${DOTFILES:?}/modules/bins" | pr -1 -t

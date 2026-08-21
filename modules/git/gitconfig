@@ -1,0 +1,23 @@
+# Included via: git config --global include.path ~/.config/dotfiles.gitconfig
+
+[alias]
+	st = status -sb
+	co = checkout
+	br = branch
+	cm = commit
+	lg = log --oneline --decorate --graph -20
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	amend = commit --amend --no-edit
+
+[init]
+	defaultBranch = main
+
+[pull]
+	rebase = false
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[push]
+	autoSetupRemote = true

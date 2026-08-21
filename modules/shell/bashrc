@@ -1,0 +1,62 @@
+#!/usr/bin/env bash
+# Sourced via ~/.dotfiles.bashrc (DOTFILES must be set).
+
+export DOTFILES="${DOTFILES:?DOTFILES must be set}"
+
+_load_scripts() {
+  local f path
+  for f in aliases exports history vim; do
+    path="$DOTFILES/modules/shell/scripts/${f}.sh"
+    [[ -r "$path" ]] && source "$path"
+  done
+}
+
+extend_path() {
+  case ":$PATH:" in
+    *:"$DOTFILES/modules/bins":*) ;;
+    *) export PATH="$PATH:$DOTFILES/modules/bins" ;;
+  esac
+}
+
+dreload() {
+  # shellcheck disable=SC1090
+  source "$HOME/.dotfiles.bashrc"
+  echo "reloaded dotfiles"
+}
+
+dclean() {
+  clear
+  if [[ -n "${TMUX_PANE:-}" ]]; then
+    tmux clear-history 2>/dev/null || true
+  fi
+}
+
+ws() {
+  local dirname="${WORKSPACE:-$HOME/workspace}"
+  if [[ $# -eq 1 ]]; then
+    dirname="$dirname/$1"
+  fi
+  if [[ -d "$dirname" ]]; then
+    pushd "$dirname" >/dev/null || return 1
+  else
+    echo "Directory: $dirname doesn't exist" >&2
+    return 1
+  fi
+}
+
+_load_scripts
+extend_path
+
+# Optional modern prompt / smarter cd
+_shell_name="$(basename "${SHELL:-bash}")"
+if [[ "${TERM:-}" != "dumb" ]] && command -v starship >/dev/null 2>&1; then
+  eval "$(starship init "$_shell_name" 2>/dev/null)" || true
+fi
+if command -v zoxide >/dev/null 2>&1; then
+  eval "$(zoxide init "$_shell_name" 2>/dev/null)" || true
+fi
+
+unset -f _load_scripts
+unset _shell_name
+
+echo ":dotfiles shell"

@@ -1,5 +1,5 @@
-.tmux/plugins/tmux-*
 .bash_history
 .local/
-home/daplay/.vim/bundle
-home/daplay/.tmux/plugins/tmux-*
+.DS_Store
+*.swp
+.tmux/plugins/tmux-*

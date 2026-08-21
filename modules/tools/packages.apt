@@ -1,0 +1,14 @@
+# apt packages for the tools module
+
+git
+tmux
+neovim
+ripgrep
+fd-find
+fzf
+bat
+jq
+tree
+wget
+curl
+# starship / zoxide often via curl installers on Linux

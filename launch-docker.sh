@@ -1,15 +1,14 @@
-#!/bin/sh
+#!/usr/bin/env bash
+set -euo pipefail
 
-set -xe 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+WORKSPACE="${WORKSPACE:-$HOME/workspace}"
 
-# builds docker image for dotfiles
-docker build . -t dotfiles
+docker build "$ROOT" -t dotfiles
 
-# runs docker with standard
 docker run -it \
   -u daplay \
-  -v $(pwd)/home/daplay:/home/daplay \
-  -v $WORKSPACE:/home/daplay/workspace \
+  -v "$ROOT:/home/daplay/dotfiles" \
+  -v "$WORKSPACE:/home/daplay/workspace" \
   dotfiles \
   bash
-

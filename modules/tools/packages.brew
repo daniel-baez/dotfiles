@@ -1,0 +1,20 @@
+# Homebrew packages for the tools module
+# Lines starting with # are ignored
+
+git
+tmux
+neovim
+ripgrep
+fd
+fzf
+starship
+zoxide
+bat
+eza
+gh
+jq
+tree
+wget
+curl
+# neovim remote for nvim terminal
+neovim-remote

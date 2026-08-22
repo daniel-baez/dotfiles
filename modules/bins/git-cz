@@ -1,0 +1,335 @@
+#!/usr/bin/env bash
+# Interactive (or one-shot) commit following the Angular convention:
+#   <type>(<scope>): <subject>
+#
+#   g cz
+#   g cz feat handle empty response
+#   g cz -s api feat handle empty response
+set -euo pipefail
+
+TYPES=$'build\tChanges to the build system or external dependencies
+ci\tChanges to CI configuration
+docs\tDocumentation only
+feat\tA new feature
+fix\tA bug fix
+perf\tA code change that improves performance
+refactor\tNeither a fix nor a feature
+style\tFormatting, white-space, missing semi-colons
+test\tAdd or correct tests
+chore\tMaintenance that does not fit other types
+revert\tRevert a previous commit'
+
+usage() {
+  cat <<'EOF'
+usage: git cz [options] [<type> <subject...>]
+
+Angular conventional commit. No args = interactive prompts.
+
+  -s, --scope <scope>   scope (api, parser, …)
+  -b, --breaking        mark as breaking (adds ! and BREAKING CHANGE footer)
+      --breaking-message <text>
+                        BREAKING CHANGE footer (implies --breaking)
+      --no-ticket       do not add Refs: <ticket> from the branch
+  -e, --edit            open the editor after composing the message
+  -y, --yes             skip the final confirm
+  -h, --help            this help
+
+Git intercepts `git cz --help` (man page). Use `g cz -h`.
+
+examples:
+  g cz
+  g cz feat handle empty response
+  g cz -s api feat handle empty response
+  g cz -b -s auth feat require mfa on login
+EOF
+}
+
+is_type() {
+  grep -Fxq "$1" <<<"$(printf '%s\n' "$TYPES" | cut -f1)"
+}
+
+uncapitalize_subject() {
+  local s=$1
+  [[ ${#s} -lt 2 ]] && { printf '%s' "$s"; return; }
+  local a=${s:0:1} b=${s:1:1}
+  if [[ $a == [A-Z] && $b == [a-z] ]]; then
+    printf '%s%s' "$(printf '%s' "$a" | tr '[:upper:]' '[:lower:]')" "${s:1}"
+  else
+    printf '%s' "$s"
+  fi
+}
+
+strip_period() {
+  local s=$1
+  while [[ $s == *. ]]; do
+    s=${s%.}
+  done
+  printf '%s' "$s"
+}
+
+prompt() {
+  local var=$1 label=$2 default=${3-}
+  local reply
+  if [[ -n $default ]]; then
+    read -r -p "$label [$default]: " reply || exit 1
+    printf -v "$var" '%s' "${reply:-$default}"
+  else
+    read -r -p "$label: " reply || exit 1
+    printf -v "$var" '%s' "$reply"
+  fi
+}
+
+prompt_yn() {
+  local label=$1 default=$2
+  local reply hint
+  if [[ $default == y ]]; then hint="Y/n"; else hint="y/N"; fi
+  read -r -p "$label [$hint]: " reply || exit 1
+  reply=$(printf '%s' "$reply" | tr '[:upper:]' '[:lower:]')
+  if [[ -z $reply ]]; then
+    [[ $default == y ]]
+    return
+  fi
+  [[ $reply == y || $reply == yes ]]
+}
+
+pick_type() {
+  local line chosen
+  if [[ -t 0 && -t 1 ]] && command -v fzf >/dev/null 2>&1; then
+    line=$(printf '%s\n' "$TYPES" | fzf \
+      --delimiter=$'\t' \
+      --with-nth=1,2 \
+      --nth=1,2 \
+      --prompt='type › ' \
+      --header='Angular commit type (feat, fix, …)' \
+      --height=16 \
+      --reverse \
+      --cycle) || true
+    chosen=${line%%$'\t'*}
+  else
+    local keys=() i=1 n
+    echo "type:"
+    while IFS=$'\t' read -r key desc; do
+      printf '  %2d) %-10s %s\n' "$i" "$key" "$desc"
+      keys+=("$key")
+      i=$((i + 1))
+    done <<<"$TYPES"
+    while true; do
+      read -r -p "number: " n || exit 1
+      if [[ $n =~ ^[0-9]+$ && $n -ge 1 && $n -le ${#keys[@]} ]]; then
+        chosen=${keys[$((n - 1))]}
+        break
+      fi
+      echo "pick 1–${#keys[@]}" >&2
+    done
+  fi
+  if [[ -z ${chosen:-} ]]; then
+    echo "cancelled" >&2
+    exit 1
+  fi
+  printf '%s' "$chosen"
+}
+
+recent_scopes() {
+  git log -40 --pretty=%s --no-merges 2>/dev/null \
+    | sed -n 's/^[a-z][a-z]*(\([^)]*\)):.*/\1/p' \
+    | awk 'NF && !seen[$0]++' \
+    | head -n 8 || true
+}
+
+compose_header() {
+  local type=$1 scope=$2 subject=$3 breaking=$4
+  local left=$type
+  if [[ -n $scope ]]; then
+    left="$type($scope)"
+  fi
+  if [[ $breaking == 1 ]]; then
+    left="$left!"
+  fi
+  printf '%s: %s' "$left" "$subject"
+}
+
+comma_join() {
+  awk 'NF { if (n++) printf ", "; printf "%s", $0 } END { print "" }'
+}
+
+scope=""
+breaking=0
+breaking_text=""
+ticket_mode=auto
+edit=0
+confirm=1
+positional=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+    -s|--scope)
+      [[ $# -ge 2 ]] || { echo "option $1 needs a value" >&2; exit 1; }
+      scope=$2
+      shift 2
+      ;;
+    -b|--breaking) breaking=1; shift ;;
+    --breaking-message)
+      [[ $# -ge 2 ]] || { echo "option $1 needs a value" >&2; exit 1; }
+      breaking=1
+      breaking_text=$2
+      shift 2
+      ;;
+    --no-ticket) ticket_mode=never; shift ;;
+    -e|--edit) edit=1; shift ;;
+    -y|--yes) confirm=0; shift ;;
+    -h|--help) usage; exit 0 ;;
+    --) shift; while [[ $# -gt 0 ]]; do positional+=("$1"); shift; done ;;
+    -*) echo "unknown option: $1" >&2; usage >&2; exit 1 ;;
+    *) positional+=("$1"); shift ;;
+  esac
+done
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "not a git repository" >&2
+  exit 1
+fi
+
+type=""
+subject=""
+if [[ ${#positional[@]} -gt 0 ]]; then
+  type=${positional[0]}
+  if ! is_type "$type"; then
+    echo "unknown type '$type'" >&2
+    echo "allowed: $(printf '%s\n' "$TYPES" | cut -f1 | comma_join)" >&2
+    exit 1
+  fi
+  if [[ ${#positional[@]} -gt 1 ]]; then
+    subject="${positional[*]:1}"
+  fi
+fi
+
+if git diff --cached --quiet; then
+  echo "nothing staged — g a or g ap first" >&2
+  exit 1
+fi
+
+interactive=0
+if [[ -z $type || -z $subject ]]; then
+  if [[ ! -t 0 || ! -t 1 ]]; then
+    usage >&2
+    exit 1
+  fi
+  interactive=1
+fi
+
+if [[ $interactive == 1 ]]; then
+  echo
+  git diff --cached --stat
+  echo
+fi
+
+if [[ -z $type ]]; then
+  type=$(pick_type)
+  echo "type: $type"
+fi
+
+if [[ $interactive == 1 && -z $scope ]]; then
+  local_scopes=$(recent_scopes)
+  if [[ -n $local_scopes ]]; then
+    echo "recent scopes: $(printf '%s\n' "$local_scopes" | comma_join)"
+  fi
+  prompt scope "scope (empty to skip)"
+fi
+
+if [[ -z $subject ]]; then
+  while [[ -z $subject ]]; do
+    prompt subject "subject (imperative, no period)"
+  done
+fi
+
+subject=$(strip_period "$(uncapitalize_subject "$subject")")
+
+body=""
+if [[ $interactive == 1 ]]; then
+  echo "body (optional). Empty line to finish:"
+  while IFS= read -r line; do
+    [[ -z $line ]] && break
+    body+="$line"$'\n'
+  done
+  body=${body%$'\n'}
+
+  if [[ $breaking == 0 ]] && prompt_yn "breaking change?" n; then
+    breaking=1
+  fi
+fi
+
+if [[ $breaking == 1 && -z $breaking_text ]]; then
+  if [[ $interactive == 1 || -t 0 ]]; then
+    while [[ -z $breaking_text ]]; do
+      prompt breaking_text "BREAKING CHANGE"
+    done
+  else
+    echo "breaking change needs a description: use --breaking-message or run interactively" >&2
+    exit 1
+  fi
+fi
+
+ticket=""
+if [[ $ticket_mode != never ]]; then
+  ticket=$(git ticket 2>/dev/null || true)
+fi
+include_ticket=0
+if [[ -n $ticket ]]; then
+  if [[ $interactive == 1 ]]; then
+    if prompt_yn "footer Refs: $ticket ?" y; then
+      include_ticket=1
+    fi
+  else
+    include_ticket=1
+  fi
+fi
+
+header=$(compose_header "$type" "$scope" "$subject" "$breaking")
+if [[ ${#header} -gt 100 ]]; then
+  echo "header is ${#header} chars (Angular max is 100):" >&2
+  echo "  $header" >&2
+  if [[ $interactive == 1 ]]; then
+    prompt_yn "commit anyway?" n || exit 1
+  else
+    exit 1
+  fi
+fi
+
+footer=""
+if [[ -n $breaking_text ]]; then
+  footer="BREAKING CHANGE: $breaking_text"
+fi
+if [[ $include_ticket == 1 ]]; then
+  if [[ -n $footer ]]; then
+    footer+=$'\n'"Refs: $ticket"
+  else
+    footer="Refs: $ticket"
+  fi
+fi
+
+tmp=$(mktemp)
+trap 'rm -f "$tmp"' EXIT
+{
+  printf '%s\n' "$header"
+  if [[ -n $body ]]; then
+    printf '\n%s\n' "$body"
+  fi
+  if [[ -n $footer ]]; then
+    printf '\n%s\n' "$footer"
+  fi
+} >"$tmp"
+
+echo
+echo "────────"
+cat "$tmp"
+echo "────────"
+
+if [[ $confirm == 1 && $interactive == 1 ]]; then
+  prompt_yn "commit?" y || { echo "aborted"; exit 1; }
+fi
+
+if [[ $edit == 1 ]]; then
+  git commit -F "$tmp" --edit
+else
+  git commit -F "$tmp"
+fi

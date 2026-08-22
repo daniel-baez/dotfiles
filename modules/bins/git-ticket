@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Print the JIRA-style ticket (ABC-123) parsed from the current branch name.
+# Copies to the clipboard when stdout is a terminal.
+set -euo pipefail
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "not a git repository" >&2
+  exit 1
+fi
+
+branch=$(git branch --show-current)
+if [[ -z "$branch" ]]; then
+  exit 1
+fi
+
+ticket=$(grep -Eo '[A-Z]{2,5}-[0-9]+' <<<"$branch" | head -n1 || true)
+if [[ -z "$ticket" ]]; then
+  echo "no ticket in branch '$branch'" >&2
+  exit 1
+fi
+
+echo "$ticket"
+
+if [[ -t 1 ]]; then
+  if command -v pbcopy >/dev/null 2>&1; then
+    printf '%s' "$ticket" | pbcopy
+  elif command -v wl-copy >/dev/null 2>&1; then
+    printf '%s' "$ticket" | wl-copy
+  elif command -v xclip >/dev/null 2>&1; then
+    printf '%s' "$ticket" | xclip -selection clipboard
+  fi
+fi

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Print the short SHA of HEAD. Copies to the clipboard when stdout is a terminal.
+set -euo pipefail
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "not a git repository" >&2
+  exit 1
+fi
+
+rev=$(git rev-parse --short=7 HEAD)
+echo "$rev"
+
+if [[ -t 1 ]]; then
+  if command -v pbcopy >/dev/null 2>&1; then
+    printf '%s' "$rev" | pbcopy
+  elif command -v wl-copy >/dev/null 2>&1; then
+    printf '%s' "$rev" | wl-copy
+  elif command -v xclip >/dev/null 2>&1; then
+    printf '%s' "$rev" | xclip -selection clipboard
+  fi
+fi

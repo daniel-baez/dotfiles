@@ -14,8 +14,6 @@ RUN apt-get update -q \
     jq \
     ripgrep \
     sudo \
-    tmux \
-    neovim \
     fzf \
     ca-certificates \
   && apt-get clean \

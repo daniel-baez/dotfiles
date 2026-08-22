@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Print the git shortcut cheatsheet. Keep in sync with docs/git.md.
+cat <<'EOF'
+Git shortcuts — everything is `g <command>`  (g = git)
+
+inspect    g s                 short status
+           g d / g ds          diff / staged diff
+           g l / g ll          graph log / last commit
+           g b                 branches (newest first)
+           g rev               short SHA (copied)
+
+change     g a / g ap          add all / add patch
+           g cz                Angular commit (interactive)
+           g c                 raw commit        (g c -m "msg")
+           g amend             amend, keep message
+           g wip               commit everything as "wip"
+           g unstage           unstage files
+           g undo              undo last commit, keep files
+
+move       g sw <name>         switch branch
+           g new <name>        create + switch
+           g main              default branch + pull
+           g develop           develop + pull
+
+integrate  g sync              merge latest main/master into this branch
+           g sync --rebase     same, but rebase
+           g sync <branch>     merge origin/<branch> instead
+           g f                 fetch (prunes gone remotes)
+           g pull / g push     pull / push (upstream auto-set)
+           g pf                push --force-with-lease
+
+ticket     g ticket            JIRA key from branch (copied)
+           g done              g cz + push (interactive if no args)
+
+help       g aliases           this list
+           g cz -h             conventional-commit help
+           docs/git.md         full guide
+
+Files:     g restore -- <path>     discard unstaged edits (not checkout)
+           g diff-blame            blame-oriented diff
+EOF

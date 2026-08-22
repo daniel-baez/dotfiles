@@ -61,7 +61,6 @@ resolve_package_name() {
     brew:ag) echo "the_silver_searcher" ;;
     apt:rg) echo "ripgrep" ;;
     apt:ag) echo "silversearcher-ag" ;;
-    apt:nvim) echo "neovim" ;;
     brew:fd) echo "fd" ;;
     apt:fd) echo "fd-find" ;;
     *) echo "$tool" ;;

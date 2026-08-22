@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Git helpers module (bins + optional gitconfig includes)
+# Git helpers module (gitconfig aliases via include.path)
 
 set -euo pipefail
 

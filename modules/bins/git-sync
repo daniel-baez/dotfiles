@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+# Bring the current branch up to date with the default branch (or another).
+# Replaces the old `dmerge` / `gmm` muscle memory.
+#
+#   g sync              merge origin/<default> into the current branch
+#   g sync --rebase     rebase onto origin/<default>
+#   g sync develop      merge origin/develop instead
+set -euo pipefail
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "not a git repository" >&2
+  exit 1
+fi
+
+mode=merge
+if [[ "${1:-}" == "--rebase" ]]; then
+  mode=rebase
+  shift
+fi
+
+current=$(git branch --show-current)
+if [[ -z "$current" ]]; then
+  echo "detached HEAD; checkout a branch first" >&2
+  exit 1
+fi
+
+target=""
+if [[ $# -gt 0 && "$1" != -* ]]; then
+  target="${1#origin/}"
+  shift
+fi
+target="${target:-$(git default-branch)}"
+
+if [[ "$current" == "$target" ]]; then
+  echo "already on $target — pulling"
+  if [[ "$mode" == rebase ]]; then
+    git pull --rebase
+  else
+    git pull
+  fi
+  exit 0
+fi
+
+echo "fetching origin…"
+git fetch origin
+
+if ! git rev-parse --verify "origin/$target" >/dev/null 2>&1; then
+  echo "origin/$target not found" >&2
+  exit 1
+fi
+
+if [[ "$mode" == rebase ]]; then
+  echo "rebasing $current onto origin/$target"
+  git rebase "origin/$target" "$@"
+else
+  echo "merging origin/$target into $current"
+  git merge --no-edit "origin/$target" "$@"
+fi

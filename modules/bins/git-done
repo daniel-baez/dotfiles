@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Conventional commit (Angular) then push.
+# Usage: g done               # interactive
+#        g done feat handle empty response
+set -euo pipefail
+
+git cz "$@"
+git push

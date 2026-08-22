@@ -4,7 +4,7 @@
 # Usage:
 #   ./install.sh                  # interactive: pick modules
 #   ./install.sh --all            # install everything
-#   ./install.sh shell tmux nvim # install listed modules
+#   ./install.sh shell git tools  # install listed modules
 #   ./install.sh --list           # list modules
 #   ./install.sh --dry-run ...   # show plan only
 
@@ -16,7 +16,7 @@ source "$ROOT/lib/common.sh"
 # shellcheck source=lib/detect.sh
 source "$ROOT/lib/detect.sh"
 
-ALL_MODULES=(shell bins git tmux nvim tools)
+ALL_MODULES=(shell bins git tools)
 
 usage() {
   cat <<EOF
@@ -32,7 +32,7 @@ Modules: ${ALL_MODULES[*]}
 
 Examples:
   ./install.sh --all
-  ./install.sh shell tmux
+  ./install.sh shell git
   ./install.sh              # interactive picker
 EOF
 }

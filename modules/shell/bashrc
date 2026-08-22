@@ -5,7 +5,7 @@ export DOTFILES="${DOTFILES:?DOTFILES must be set}"
 
 _load_scripts() {
   local f path
-  for f in aliases exports history vim; do
+  for f in aliases exports history; do
     path="$DOTFILES/modules/shell/scripts/${f}.sh"
     [[ -r "$path" ]] && source "$path"
   done
@@ -26,9 +26,6 @@ dreload() {
 
 dclean() {
   clear
-  if [[ -n "${TMUX_PANE:-}" ]]; then
-    tmux clear-history 2>/dev/null || true
-  fi
 }
 
 ws() {

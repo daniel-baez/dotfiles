@@ -1,6 +1,6 @@
 # Dotfiles — modern modular setup
 
-Streamlined install for shell helpers, Neovim, tmux, git aliases, and favorite CLI tools.
+Streamlined install for shell helpers, git aliases, and favorite CLI tools.
 
 ## Quick start
 
@@ -13,7 +13,7 @@ cd ~/workspace/dotfiles
 Or install modules selectively:
 
 ```bash
-./install.sh shell tmux nvim
+./install.sh shell git
 ./install.sh --list
 ./install.sh --dry-run --all
 ```
@@ -25,20 +25,18 @@ After install, open a new terminal (or `source ~/.dotfiles.bashrc`).
 | Module | What it does |
 |--------|----------------|
 | `shell` | Aliases, history, exports, PATH to custom bins; hooks zsh/bash |
-| `bins` | Custom CLI helpers (`dcommit`, `dticket`, …) |
-| `git` | Shared git aliases via `include.path` |
-| `tmux` | `~/.tmux.conf` + TPM bootstrap |
-| `nvim` | Lua + lazy.nvim config (Telescope, LSP, Oil, …) |
-| `tools` | Installs ripgrep, fzf, starship, zoxide, neovim, … via brew/apt |
+| `bins` | Custom CLI helpers (`g sync`, `g done`, wiki sync, …) |
+| `git` | Shared git aliases via `include.path` — [docs/git.md](docs/git.md) |
+| `tools` | Installs ripgrep, fzf, starship, zoxide, … via brew/apt |
 
-See [docs/modules.md](docs/modules.md) and [docs/installation.md](docs/installation.md).
+See [docs/modules.md](docs/modules.md), [docs/installation.md](docs/installation.md), and [docs/git.md](docs/git.md) (`g aliases`).
 
 ## Layout
 
 ```
 lib/           shared install helpers
 modules/       one folder per concern (+ install.sh)
-docs/          guides + keystrokes
+docs/          guides
 ```
 
 ## Docker (optional)

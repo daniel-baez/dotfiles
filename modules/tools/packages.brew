@@ -2,8 +2,6 @@
 # Lines starting with # are ignored
 
 git
-tmux
-neovim
 ripgrep
 fd
 fzf
@@ -16,5 +14,3 @@ jq
 tree
 wget
 curl
-# neovim remote for nvim terminal
-neovim-remote

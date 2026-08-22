@@ -1,8 +1,6 @@
 # apt packages for the tools module
 
 git
-tmux
-neovim
 ripgrep
 fd-find
 fzf

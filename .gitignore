@@ -2,4 +2,3 @@
 .local/
 .DS_Store
 *.swp
-.tmux/plugins/tmux-*

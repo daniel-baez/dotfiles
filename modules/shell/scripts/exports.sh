@@ -5,6 +5,7 @@ export DOTFILES="${DOTFILES:-$HOME/workspace/dotfiles}"
 export DOWNLOADS="${DOWNLOADS:-$HOME/Downloads}"
 export WORKSPACE="${WORKSPACE:-$HOME/workspace}"
 
+export LC_ALL="${LC_ALL:-en_US.UTF-8}"
 export JAVA_TOOL_OPTIONS='-Dfile.encoding=UTF8 -Duser.country=US -Duser.language=en'
 
 # Prefer ripgrep for fzf; fall back to ag

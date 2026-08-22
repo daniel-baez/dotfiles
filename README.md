@@ -38,11 +38,3 @@ lib/           shared install helpers
 modules/       one folder per concern (+ install.sh)
 docs/          guides
 ```
-
-## Docker (optional)
-
-```bash
-./launch-docker.sh
-```
-
-Builds a disposable Ubuntu image for experimenting with the shell environment.

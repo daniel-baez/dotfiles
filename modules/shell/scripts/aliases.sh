@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Shell aliases — kept short; prefer bins/ for multi-step helpers.
-# Git: only `g`. Everything else is `g <command>` — see `g aliases` / docs/git.md.
+# Git: only `g`. Everything else is `g <command>` — see `g aliases` / README.md.
 
 alias a="alias"
 alias c="dclean"

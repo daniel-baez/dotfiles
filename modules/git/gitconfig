@@ -1,5 +1,5 @@
 # Included via: git config --global include.path ~/.config/dotfiles.gitconfig
-# Cheatsheet: `g aliases`   Guide: docs/git.md
+# Cheatsheet: `g aliases`   Guide: README.md
 #
 # Convention: type `g <command>` (g = git). Workflows live as git-* bins on PATH.
 

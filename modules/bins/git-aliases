@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Print the git shortcut cheatsheet. Keep in sync with docs/git.md.
+# Print the git shortcut cheatsheet. Keep in sync with README.md.
 cat <<'EOF'
 Git shortcuts — everything is `g <command>`  (g = git)
 
@@ -34,7 +34,7 @@ ticket     g ticket            JIRA key from branch (copied)
 
 help       g aliases           this list
            g cz -h             conventional-commit help
-           docs/git.md         full guide
+           README.md           full guide
 
 Files:     g restore -- <path>     discard unstaged edits (not checkout)
            g diff-blame            blame-oriented diff
